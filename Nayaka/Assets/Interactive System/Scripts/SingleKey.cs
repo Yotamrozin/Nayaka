@@ -5,17 +5,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleKey : MonoBehaviour {
-    private KeyCode thisKeyCode;
+public class SingleKey : MonoBehaviour
+{
+    public KeyCode thisKeyCode;
 
-   
-    
+
     //INHERITED FROM BODY
 
     //excitement (0<x<1) or inhibition (-1<x<0).
     public float Excitement;
-    private float OriginalExcitement;
     public float DecayTime;
+
 
     //the desired stimulation
     //will be converted to duration/number of clicks the key wishes to be pressed 
@@ -27,21 +27,28 @@ public class SingleKey : MonoBehaviour {
     public float DesiredRest;
 
     //how many keys to each direction does the pressing of the key affect
-    public float areaOfEffect; 
+    public float areaOfEffect;
 
     //--------------
 
     //BACK PROPAGATION
+    public float force = 0;
+    public float forceIncrement = 0.1f;
+
+    private float OriginalExcitement;
     private bool isPressed; //used for duration of press
-    private float duration, durationFactor = 0;
+    private float duration, durationFactor = 0.01f;
     private int numberOfClicks;
-    public float force;
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start()
+    {
         //save the original excitement for resetting and decay
         OriginalExcitement = Excitement;
+
         //convert the name of the GameObject to Keycode
-        thisKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), name);
+
+        // thisKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), name);
     }
 
     //--------------------
@@ -52,81 +59,97 @@ public class SingleKey : MonoBehaviour {
     public float ClicksDecayTime;
 
     // Update is called once per frame
-    void Update () {
-        //DECAY (smoothed)
+    void Update()
+    {
+        DecayExcitementAndNumberOfClicksToOriginalValue();
+
+        CheckIfKeyIsPressedSendForceAndAddClickCount();
+
+        KeyHoldingExciteOrInhibitAndCountDuration();
+
+        SendForce();
+
+        CheckIfKeyUpAndReset();
+
+    }
+
+    public void Reset()
+    {
+        Excitement = OriginalExcitement;
+        numberOfClicks = 0;
+    }
+
+    public void SendForce()
+    {
+        transform.position += new Vector3(0, Excitement * force, 0);
+        print(name + Excitement);
+    }
+
+    //DECAY (smoothed)
+    public void DecayExcitementAndNumberOfClicksToOriginalValue()
+    {
         if (Excitement != OriginalExcitement)
-        { 
-            Excitement = Decay(Excitement, OriginalExcitement, ExcitementDecayTime);
+        {
+            Excitement = SmoothStep(Excitement, OriginalExcitement, DecayTime);
         }
         if (numberOfClicks != 0)
         {
-            numberOfClicks = (int)Decay(numberOfClicks, 0, ClicksDecayTime);
+            numberOfClicks = (int)SmoothStep(numberOfClicks, 0, DecayTime);
         }
-            
-        //ON KEY DOWN
+    }
+
+
+    //ON KEY DOWN
+    private void CheckIfKeyIsPressedSendForceAndAddClickCount()
+    {
         if (Input.GetKeyDown(thisKeyCode))
         {
             numberOfClicks += 1;
             isPressed = true;
             duration = 0;
+            force += forceIncrement;
         }
+    }
 
-        //KEY HOLD
-        //calculate duration and increase or decrease excitement 
-        //according to desired time
+
+    //KEY HOLD
+    //calculate duration and increase or decrease excitement 
+    //according to desired time
+    private void KeyHoldingExciteOrInhibitAndCountDuration()
+    {
+
         if (isPressed)
         {
             duration += Time.deltaTime;
 
             if (duration < DesiredTime || numberOfClicks < DesiredClicks)
             {
-                durationFactor = duration * 0.01f;
-                if(Excitement < 1)
-                Excitement = Excitement + durationFactor;
+
+                if (Excitement < 1)
+                    Excitement = Excitement + (duration * durationFactor);
             }
             if (duration > DesiredTime || numberOfClicks > DesiredClicks)
             {
-                durationFactor = duration * 0.01f;
+
                 if (Excitement > -1)
-                Excitement = Excitement - durationFactor;
+                    Excitement = Excitement - (duration * durationFactor);
             }
-            force = Excitement;
-            print(name + force);
-
-            transform.position += new Vector3(0, force*0.1f, 0);
-
         }
+    }
+
+    //when Key is Up
+    private void CheckIfKeyUpAndReset()
+    {
         if (Input.GetKeyUp(thisKeyCode))
         {
             isPressed = false;
             TimeLerpStarted = Time.time;
             durationFactor = 0;
         }
+    }
 
-    }
-    void OnGUI()
-    {
-        ////Targeting the right key.
-        //Event CurrentEvent = Event.current;
-        //if (CurrentEvent.isKey && !isPressed)
-        //{
-        //    Debug.Log("Detected key code: " + CurrentEvent.keyCode);
-        //    if (name == CurrentEvent.keyCode.ToString())
-        //    {
-        //        isPressed = true;
-        //    }
-        //}
-    }
-    public void Reset()
-    {
-        Excitement = OriginalExcitement;
-        numberOfClicks = 0;
-    }
-    public void SendForce()
-    {
-
-    }
-    public float Decay(float LerpStartValue, float LerpEndValue, float LerpTime)
+    //Smooth Step in time
+    public float SmoothStep(float LerpStartValue, float LerpEndValue, float LerpTime)
     {
         float TimeSinceStarted = Time.time - TimeLerpStarted;
         float PercentageComplete = TimeSinceStarted / LerpTime;
