@@ -238,7 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5283dda4d582091499322f496d624c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisKeyCode: 0
+  thisKeyCode: 127
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -247,9 +248,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &35655143
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -431,9 +432,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &146436431
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -540,9 +541,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &291433771
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 283
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -649,9 +650,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &359183156
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -758,9 +759,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &445740426
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -867,9 +868,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5283dda4d582091499322f496d624c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisKeyCode: 0
+  thisKeyCode: 49
+  BaseForce: 0
   Excitement: 0.3
   DecayTime: 0
   DesiredStimulation: 0
@@ -1053,9 +1054,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &689902003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 284
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -1162,9 +1163,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &735803276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -1271,9 +1272,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &752393079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -1380,9 +1381,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &771469484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -1489,9 +1490,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &818314320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -1691,9 +1692,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1043414404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -1868,9 +1869,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1119813193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,18 +1968,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5283dda4d582091499322f496d624c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisKeyCode: 0
-  Excitement: 3
-  DecayTime: 0
+  thisKeyCode: 50
+  BaseForce: 0
+  Excitement: 0.3
+  DecayTime: 10
   DesiredStimulation: 0
-  DesiredTime: 0
-  DesiredClicks: 0
-  DesiredRest: 0
+  DesiredTime: 5
+  DesiredClicks: 3
+  DesiredRest: 1
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.2
+  KeyHoldExcitementFactor: 0.01
 --- !u!1 &1122225146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,6 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -2114,9 +2115,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1343660264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,6 +2243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 27
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -2251,9 +2252,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1436874325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,6 +2352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -2360,9 +2361,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1581045947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,6 +2461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -2469,9 +2470,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1619602221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,6 +2570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 285
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -2578,9 +2579,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1703408877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -2687,9 +2688,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1734267024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,6 +2850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -2858,9 +2859,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1767047202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,6 +2959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -2967,9 +2968,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1929328735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,6 +3068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -3076,9 +3077,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1957229773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,6 +3177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -3185,9 +3186,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &1976320821
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,6 +3286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -3294,9 +3295,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &2033347668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,6 +3395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 0
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -3403,9 +3404,8 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &2033573716
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,7 +3418,6 @@ GameObject:
   - component: {fileID: 2033573719}
   - component: {fileID: 2033573718}
   - component: {fileID: 2033573721}
-  - component: {fileID: 2033573722}
   m_Layer: 0
   m_Name: F1
   m_TagString: Untagged
@@ -3505,28 +3504,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisKeyCode: 282
-  Excitement: 3
-  DecayTime: 0
+  BaseForce: 0
+  Excitement: 0.3
+  DecayTime: 4
   DesiredStimulation: 0
-  DesiredTime: 0
-  DesiredClicks: 0
-  DesiredRest: 0
+  DesiredTime: 3
+  DesiredClicks: 3
+  DesiredRest: 1
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
---- !u!114 &2033573722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2033573716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87497197e6f49b140a53f893c3a008c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
 --- !u!1 &2066396190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,7 +3612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5283dda4d582091499322f496d624c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisKeyCode: 0
+  thisKeyCode: 96
+  BaseForce: 0
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
@@ -3633,6 +3622,5 @@ MonoBehaviour:
   DesiredRest: 0
   areaOfEffect: 0
   force: 0
-  forceIncrement: 0.1
-  ExcitementDecayTime: 0
-  ClicksDecayTime: 0
+  ExcitementClickIncrement: 0.1
+  KeyHoldExcitementFactor: 0.2
