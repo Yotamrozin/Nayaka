@@ -250,6 +250,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &35655143
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &146436431
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +545,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &291433771
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +655,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &359183156
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +765,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &445740426
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +875,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1062,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &689902003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1172,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &735803276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1282,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &752393079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,6 +1392,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &771469484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,6 +1502,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &818314320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1705,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1043414404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,6 +1883,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1119813193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,6 +1993,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.2
   KeyHoldExcitementFactor: 0.01
+  duration: 0
 --- !u!1 &1122225146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,6 +2131,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1343660264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,6 +2269,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1436874325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2379,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1581045947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2489,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1619602221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2581,6 +2599,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1703408877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,6 +2709,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1734267024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,6 +2881,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1767047202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,6 +2991,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1929328735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,6 +3101,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1957229773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,6 +3211,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &1976320821
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,6 +3321,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &2033347668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3431,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &2033573716
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,6 +3541,7 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0
 --- !u!1 &2066396190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,3 +3651,4 @@ MonoBehaviour:
   force: 0
   ExcitementClickIncrement: 0.1
   KeyHoldExcitementFactor: 0.2
+  duration: 0

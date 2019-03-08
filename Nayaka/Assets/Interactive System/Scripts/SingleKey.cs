@@ -37,11 +37,11 @@ public class SingleKey : MonoBehaviour
     //BACK PROPAGATION
     public float force = 0;
     public float ExcitementClickIncrement = 0.1f;
-    public float KeyHoldExcitementFactor = 0.01f;
+    public float KeyHoldExcitementFactor = 0.1f;
 
     private float OriginalExcitement;
     private bool isPressed; //used for duration of press
-    private float duration;
+    public float duration;
     private int numberOfClicks;
     private float LastPress;
 
@@ -119,37 +119,32 @@ public class SingleKey : MonoBehaviour
         if (isPressed)
         {
             duration = Time.time - LastPress;
-            if (RestViolationFactor > 0)
+            print(thisKeyCode + "is held");
+            if (duration < DesiredTime)
             {
-                if (duration < DesiredTime)
+                
+                if (Excitement < 1)
                 {
-                    print(thisKeyCode + "is held");
-                    if (Excitement < 1)
-                    {
-                        Excitement += KeyHoldExcitementFactor;
-                        print("excitement up from holding " + duration);
-                    }
-                    else
-                    {
-                        Debug.Log("reached maximum");
-                    }
+                    Excitement += KeyHoldExcitementFactor;
+                    print("excitement up from holding " + Excitement);
+                }
+                else
+                {
+                    Debug.Log("reached maximum");
                 }
             }
-            if (RestViolationFactor <= 0)
+            if (duration > DesiredTime)
+            {
+                if (Excitement > -1)
                 {
-                    if (duration > DesiredTime)
-                    {
-                        if (Excitement > -1)
-                        {
-                            Excitement -= KeyHoldExcitementFactor;
-                            print("excitement down from holding " + duration);
-                        }
-                        else
-                        {
-                            Debug.Log("reached minimum");
-                        }
-                    }
+                    Excitement -= KeyHoldExcitementFactor;
+                    print("excitement down from holding " + duration);
                 }
+                else
+                {
+                    Debug.Log("reached minimum");
+                }
+            }
         }
     }
 
@@ -160,8 +155,6 @@ public class SingleKey : MonoBehaviour
         {
             isPressed = false;
             TimeLerpStarted = Time.time;
-            KeyHoldExcitementFactor = 0;
-
         }
     }
     //DECAY (smoothed)
@@ -197,7 +190,7 @@ public class SingleKey : MonoBehaviour
 
     public void SendForce()
     {
-        print(Excitement + " " + thisKeyCode);
+        //print(Excitement + " " + thisKeyCode);
         //       transform.position += new Vector3(0, Excitement * force, 0);
         //        print(name + Excitement);
     }
