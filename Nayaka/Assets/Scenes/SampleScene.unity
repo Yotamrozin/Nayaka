@@ -1988,7 +1988,7 @@ MonoBehaviour:
   DesiredStimulation: 0
   DesiredHoldingDuration: 5
   DesiredClicks: 3
-  DesiredRest: 0.5
+  DesiredRest: 2
   areaOfEffect: 0
   force: 0
   ExcitementClickIncrement: 0.06

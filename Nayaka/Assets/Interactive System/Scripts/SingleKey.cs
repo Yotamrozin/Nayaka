@@ -48,6 +48,7 @@ public class SingleKey : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         //save the original excitement for resetting and decay
         OriginalExcitement = Excitement;
         GetComponent<MeshRenderer>().material.color = new Color(Excitement, Excitement, Excitement);
@@ -91,14 +92,18 @@ public class SingleKey : MonoBehaviour
     {
         if (Input.GetKeyDown(thisKeyCode))
         {
-                print(thisKeyCode + "clicked");
-                RestFactor = Mathf.Lerp(-1, 1, Time.time - LastPress);
-                print(RestFactor + " Rest Factor");
-                Excitement += ExcitementClickIncrement*RestFactor;
+            print(thisKeyCode + "clicked");
+
+            CalculateRestFactor();
+            
+            Excitement += ExcitementClickIncrement*RestFactor;
 
             numberOfClicks += 1;
+
             isPressed = true;
+
             LastPress = Time.time;
+
             duration = 0;
         }
     }
@@ -199,5 +204,23 @@ public class SingleKey : MonoBehaviour
     public void ExcitementToColor()
     {
         GetComponent<MeshRenderer>().material.color = new Color((Excitement + 1) / 2, (Excitement + 1) / 2, (Excitement + 1) / 2);
+    }
+    public void CalculateRestFactor()
+    {
+        float TimePassedSinceLastPress = Time.time - LastPress;
+        if (TimePassedSinceLastPress < DesiredRest)
+        {
+            //InverseLerp calculates where 
+            //TimePassedSinceLastPress is between 0 rest and Desired Rest
+            //It is multiplied by 2 and subtracted 1 in order to make the range between -1 and 1
+            //this wil be useful to be inhibiting as well as exciting
+            RestFactor = (Mathf.InverseLerp(0, DesiredRest, TimePassedSinceLastPress)*2)-1;
+        }
+        else
+        {
+            RestFactor = 1;
+        }
+
+        print(RestFactor + " Rest Factor");
     }
 }
