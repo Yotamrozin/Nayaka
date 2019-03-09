@@ -24,10 +24,10 @@ public class SingleKey : MonoBehaviour
     //should i make key holding, number of clicks, and resting time codependent?
     [Range(0f, 1f)]
     public float DesiredStimulation;
-    public float DesiredTime;
+    public float DesiredHoldingDuration;
     public int DesiredClicks;
     public float DesiredRest;
-    private float RestViolationFactor;
+    private float RestFactor;
 
     //how many keys to each direction does the pressing of the key affect
     public float areaOfEffect;
@@ -50,7 +50,7 @@ public class SingleKey : MonoBehaviour
     {
         //save the original excitement for resetting and decay
         OriginalExcitement = Excitement;
-
+        GetComponent<MeshRenderer>().material.color = new Color(Excitement, Excitement, Excitement);
         //convert the name of the GameObject to Keycode
 
         // thisKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), name);
@@ -67,7 +67,7 @@ public class SingleKey : MonoBehaviour
     void Update()
     {
         //Click + Key Hold (calculates excitement) -> Rest
-        CheckIfKeyIsPressedSendForceAndAddClickCount();
+        KeyDownHandling();
         if (isPressed)
         {
             KeyHolding();
@@ -81,28 +81,21 @@ public class SingleKey : MonoBehaviour
             DecayExcitementToOriginalValue();
             DecayNumberOfClicksToOriginalValue();
         }
-
+        ExcitementToColor();
     }
 
 
     
     //ON KEY DOWN
-    private void CheckIfKeyIsPressedSendForceAndAddClickCount()
+    private void KeyDownHandling()
     {
         if (Input.GetKeyDown(thisKeyCode))
         {
-            print(thisKeyCode + "clicked");
-            //check if the key rested enough
-            if (Time.time - LastPress < DesiredRest)
-            { 
-                RestViolationFactor = Mathf.Lerp(1, 0, Time.time - LastPress);
-                print(RestViolationFactor + "Rest Violation Factor");
-                Excitement -= ExcitementClickIncrement*RestViolationFactor;
-            }
-            else
-            {
-                Excitement += ExcitementClickIncrement;
-            } 
+                print(thisKeyCode + "clicked");
+                RestFactor = Mathf.Lerp(-1, 1, Time.time - LastPress);
+                print(RestFactor + " Rest Factor");
+                Excitement += ExcitementClickIncrement*RestFactor;
+
             numberOfClicks += 1;
             isPressed = true;
             LastPress = Time.time;
@@ -120,25 +113,33 @@ public class SingleKey : MonoBehaviour
         {
             duration = Time.time - LastPress;
             print(thisKeyCode + "is held");
-            if (duration < DesiredTime)
-            {
-                
+            // holding happens when it is longer than 0.1 sec
+            // it is exciting if it is within the desired duration
+            // and only if it happens on a well rested key
+            if (0.1f < duration && duration < DesiredHoldingDuration && RestFactor > 0)
+            { 
                 if (Excitement < 1)
                 {
-                    Excitement += KeyHoldExcitementFactor;
-                    print("excitement up from holding " + Excitement);
+                      Excitement += (KeyHoldExcitementFactor*RestFactor);
+//                    print("excitement up from holding " + Excitement);
                 }
                 else
                 {
                     Debug.Log("reached maximum");
                 }
             }
-            if (duration > DesiredTime)
+            // holding is inhibiting if it went on for too long or happens on an unrested key
+            // the measure of inhibition of an unrested key is affected by the RestFactor
+            if (duration > DesiredHoldingDuration || RestFactor < 0)
             {
                 if (Excitement > -1)
                 {
-                    Excitement -= KeyHoldExcitementFactor;
-                    print("excitement down from holding " + duration);
+                    if (RestFactor > 0)
+                        Excitement -= KeyHoldExcitementFactor;
+                    else
+                        Excitement += KeyHoldExcitementFactor * RestFactor;
+             
+ //                   print("excitement down from holding " + duration);
                 }
                 else
                 {
@@ -190,8 +191,13 @@ public class SingleKey : MonoBehaviour
 
     public void SendForce()
     {
+        
         //print(Excitement + " " + thisKeyCode);
         //       transform.position += new Vector3(0, Excitement * force, 0);
         //        print(name + Excitement);
+    }
+    public void ExcitementToColor()
+    {
+        GetComponent<MeshRenderer>().material.color = new Color((Excitement + 1) / 2, (Excitement + 1) / 2, (Excitement + 1) / 2);
     }
 }

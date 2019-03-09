@@ -243,7 +243,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -648,7 +648,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -868,7 +868,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   Excitement: 0.3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -1165,7 +1165,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -1983,15 +1983,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 50
   BaseForce: 0
-  Excitement: 0.3
+  Excitement: 0.2
   DecayTime: 10
   DesiredStimulation: 0
-  DesiredTime: 5
+  DesiredHoldingDuration: 5
   DesiredClicks: 3
-  DesiredRest: 1
+  DesiredRest: 0.5
   areaOfEffect: 0
   force: 0
-  ExcitementClickIncrement: 0.2
+  ExcitementClickIncrement: 0.06
   KeyHoldExcitementFactor: 0.01
   duration: 0
 --- !u!1 &1122225146
@@ -2124,7 +2124,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -2262,7 +2262,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -2372,7 +2372,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -2482,7 +2482,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -2592,7 +2592,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -2702,7 +2702,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -2874,7 +2874,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -2984,7 +2984,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -3094,7 +3094,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -3204,7 +3204,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -3314,7 +3314,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -3424,7 +3424,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
@@ -3534,7 +3534,7 @@ MonoBehaviour:
   Excitement: 0.3
   DecayTime: 4
   DesiredStimulation: 0
-  DesiredTime: 3
+  DesiredHoldingDuration: 0
   DesiredClicks: 3
   DesiredRest: 1
   areaOfEffect: 0
@@ -3644,7 +3644,7 @@ MonoBehaviour:
   Excitement: 3
   DecayTime: 0
   DesiredStimulation: 0
-  DesiredTime: 0
+  DesiredHoldingDuration: 0
   DesiredClicks: 0
   DesiredRest: 0
   areaOfEffect: 0
