@@ -44,17 +44,23 @@ public class SingleKey : MonoBehaviour
     public float duration;
     private int numberOfClicks;
     private float LastPress;
+    private Color MaterialColor;
+    private float OriginalScaleX;
 
     // Use this for initialization
     void Start()
     {
-        
+        OriginalScaleX = transform.localScale.x;
+        MaterialColor = GetComponent<MeshRenderer>().material.color;
         //save the original excitement for resetting and decay
         OriginalExcitement = Excitement;
-        GetComponent<MeshRenderer>().material.color = new Color(Excitement, Excitement, Excitement);
+        MaterialColor = new Color(Excitement, Excitement, Excitement);
         //convert the name of the GameObject to Keycode
 
+
         // thisKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), name);
+
+
     }
 
     //--------------------
@@ -74,7 +80,7 @@ public class SingleKey : MonoBehaviour
             KeyHolding();
 
             SendForce();
-
+            
             CheckIfKeyUpAndReset();
         }
         if (!isPressed)
@@ -95,12 +101,14 @@ public class SingleKey : MonoBehaviour
             print(thisKeyCode + "clicked");
 
             CalculateRestFactor();
-            
+
             Excitement += ExcitementClickIncrement*RestFactor;
 
             numberOfClicks += 1;
 
             isPressed = true;
+
+            
 
             LastPress = Time.time;
 
@@ -203,7 +211,9 @@ public class SingleKey : MonoBehaviour
     }
     public void ExcitementToColor()
     {
-        GetComponent<MeshRenderer>().material.color = new Color((Excitement + 1) / 2, (Excitement + 1) / 2, (Excitement + 1) / 2);
+        Color color = GetComponent<MeshRenderer>().material.color;
+        color.g = (Excitement + 1) / 2;
+        GetComponent<MeshRenderer>().material.color = color;
     }
     public void CalculateRestFactor()
     {
@@ -213,7 +223,7 @@ public class SingleKey : MonoBehaviour
             //InverseLerp calculates where 
             //TimePassedSinceLastPress is between 0 rest and Desired Rest
             //It is multiplied by 2 and subtracted 1 in order to make the range between -1 and 1
-            //this wil be useful to be inhibiting as well as exciting
+            //this wil be useful to be inhibiting ass well as exciting
             RestFactor = (Mathf.InverseLerp(0, DesiredRest, TimePassedSinceLastPress)*2)-1;
         }
         else
@@ -221,6 +231,14 @@ public class SingleKey : MonoBehaviour
             RestFactor = 1;
         }
 
+        RestFactorToScale();
         print(RestFactor + " Rest Factor");
     }
+    public void RestFactorToScale()
+    {
+        print("scaling");
+        float NormalizedRestFactor = (RestFactor + 1) / 2;
+        transform.localScale = new Vector3(OriginalScaleX* NormalizedRestFactor, OriginalScaleX * NormalizedRestFactor, OriginalScaleX * NormalizedRestFactor);
+    }
+
 }
