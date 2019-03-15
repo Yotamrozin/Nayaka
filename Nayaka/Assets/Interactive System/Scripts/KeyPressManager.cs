@@ -1,8 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public class KeyData
+{
+    public SingleKey SingleKey;
+    public Vector3 position;
+    public float excitement;
+
+    public KeyData(SingleKey newSingleKey, Vector3 newposition, float newexcitement)
+    {
+        SingleKey = newSingleKey;
+        position = newposition;
+        excitement = newexcitement;
+    }
+
+}
 
 public class KeyPressManager : MonoBehaviour {
+    public GameObject[] KeysPressed;
 
 	// Use this for initialization
 	void Start () {
@@ -15,22 +30,6 @@ public class KeyPressManager : MonoBehaviour {
 	}
     void OnGUI()
     {
-        //Targeting the right key.
-        //Event CurrentEvent = Event.current;
-        //if (CurrentEvent.isKey)
-        //{
-            
-        //    Debug.Log("Detected key code: " + CurrentEvent.keyCode);
-        //    foreach (Transform child in transform)
-        //    {
-
-        //        if (child.name == CurrentEvent.keyCode.ToString())
-        //        {
-        //            child.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.blue);
-        //            keyConnected = true;
-        //            currentKey = child;
-        //        }
-        //    }
-        //}
+       
     }
 }

@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class SingleKey : MonoBehaviour
 {
+    
     public KeyCode thisKeyCode;
-
+    public KeyPressManager KeyPressManager;
 
     //INHERITED FROM BODY
 
@@ -46,6 +47,8 @@ public class SingleKey : MonoBehaviour
     private float LastPress;
     private Color MaterialColor;
     private float OriginalScaleX;
+    private GameObject[] NeighboringKeys;
+    
 
     // Use this for initialization
     void Start()
@@ -55,12 +58,9 @@ public class SingleKey : MonoBehaviour
         //save the original excitement for resetting and decay
         OriginalExcitement = Excitement;
         MaterialColor = new Color(Excitement, Excitement, Excitement);
+        DetectNeighbors();
         //convert the name of the GameObject to Keycode
-
-
         // thisKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), name);
-
-
     }
 
     //--------------------
@@ -239,6 +239,38 @@ public class SingleKey : MonoBehaviour
         print("scaling");
         float NormalizedRestFactor = (RestFactor + 1) / 2;
         transform.localScale = new Vector3(OriginalScaleX* NormalizedRestFactor, OriginalScaleX * NormalizedRestFactor, OriginalScaleX * NormalizedRestFactor);
+    }
+   private void DetectNeighbors()
+    {
+        //detects Neigbors, but skips itself
+        
+        if (areaOfEffect > 0)
+        {
+            Collider[] neighborColliders = Physics.OverlapSphere(transform.position, areaOfEffect);
+            NeighboringKeys = new GameObject[neighborColliders.Length-1];
+            int i = 0; 
+            bool foundItself = false;
+            print(neighborColliders.Length);
+            while (i < neighborColliders.Length-1)
+            {
+                if (neighborColliders[i].gameObject == this.gameObject)
+                {
+                    foundItself = true;
+                }
+                if (foundItself)
+                {
+                    NeighboringKeys[i] = neighborColliders[i+1].gameObject;
+                    print(NeighboringKeys[i].name);
+                    i++;
+                }
+                else
+                {
+                    NeighboringKeys[i] = neighborColliders[i].gameObject;
+                    print(NeighboringKeys[i].name);
+                    i++;
+                }
+            }
+        }
     }
 
 }
