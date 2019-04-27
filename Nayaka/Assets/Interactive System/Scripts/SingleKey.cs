@@ -32,6 +32,7 @@ public class SingleKey : MonoBehaviour
 
     //how many keys to each direction does the pressing of the key affect
     public float areaOfEffect;
+    public float NeighborEffectFactor;
 
     //--------------
 
@@ -42,18 +43,19 @@ public class SingleKey : MonoBehaviour
 
     private float OriginalExcitement;
     private bool isPressed; //used for duration of press
-    public float duration;
+    private float duration;
     private int numberOfClicks;
     private float LastPress;
     private Color MaterialColor;
-    private float OriginalScaleX;
+    private float OriginalScalex;
+    private float OriginalScaley;
     private GameObject[] NeighboringKeys;
-    
 
     // Use this for initialization
     void Start()
     {
-        OriginalScaleX = transform.localScale.x;
+        OriginalScalex = transform.localScale.x;
+        OriginalScaley = transform.localScale.y;
         MaterialColor = GetComponent<MeshRenderer>().material.color;
         //save the original excitement for resetting and decay
         OriginalExcitement = Excitement;
@@ -79,15 +81,21 @@ public class SingleKey : MonoBehaviour
         {
             KeyHolding();
 
+            ExciteOrInhibitNeighbors();
+
             SendForce();
             
             CheckIfKeyUpAndReset();
+
+            
         }
         if (!isPressed)
         {
             DecayExcitementToOriginalValue();
             DecayNumberOfClicksToOriginalValue();
+            DecayRestScalingToOriginalValue();
         }
+        
         ExcitementToColor();
     }
 
@@ -108,11 +116,12 @@ public class SingleKey : MonoBehaviour
 
             isPressed = true;
 
-            
-
+            SendKeypressDataToList();
+        
             LastPress = Time.time;
 
             duration = 0;
+
         }
     }
 
@@ -125,12 +134,12 @@ public class SingleKey : MonoBehaviour
         if (isPressed)
         {
             duration = Time.time - LastPress;
-            print(thisKeyCode + "is held");
+//            print(thisKeyCode + "is held");
             // holding happens when it is longer than 0.1 sec
             // it is exciting if it is within the desired duration
             // and only if it happens on a well rested key
             if (0.1f < duration && duration < DesiredHoldingDuration && RestFactor > 0)
-            { 
+            {
                 if (Excitement < 1)
                 {
                       Excitement += (KeyHoldExcitementFactor*RestFactor);
@@ -145,6 +154,7 @@ public class SingleKey : MonoBehaviour
             // the measure of inhibition of an unrested key is affected by the RestFactor
             if (duration > DesiredHoldingDuration || RestFactor < 0)
             {
+
                 if (Excitement > -1)
                 {
                     if (RestFactor > 0)
@@ -169,6 +179,7 @@ public class SingleKey : MonoBehaviour
         {
             isPressed = false;
             TimeLerpStarted = Time.time;
+            HeldStatusToFalseInKeypressesList();
         }
     }
     //DECAY (smoothed)
@@ -184,6 +195,22 @@ public class SingleKey : MonoBehaviour
         if (numberOfClicks != 0)
         {
             numberOfClicks = (int)SmoothStep(numberOfClicks, 0, DecayTime);
+        }
+    }
+
+    public void DecayRestScalingToOriginalValue()
+    {
+        if (OriginalScalex != transform.localScale.x)
+        {
+            Vector3 newscale = transform.localScale;
+            newscale.x = SmoothStep(transform.localScale.x, OriginalScalex, DesiredRest);
+            transform.localScale = newscale;
+        }
+        if (OriginalScalex != transform.localScale.y)
+        {
+            Vector3 newscale = transform.localScale;
+            newscale.y = SmoothStep(transform.localScale.y, OriginalScaley, DesiredRest);
+            transform.localScale = newscale;
         }
     }
 
@@ -213,6 +240,8 @@ public class SingleKey : MonoBehaviour
     {
         Color color = GetComponent<MeshRenderer>().material.color;
         color.g = (Excitement + 1) / 2;
+        color.r = (Excitement + 1) / 2;
+        color.b = (Excitement + 1) / 2;
         GetComponent<MeshRenderer>().material.color = color;
     }
     public void CalculateRestFactor()
@@ -232,13 +261,13 @@ public class SingleKey : MonoBehaviour
         }
 
         RestFactorToScale();
-        print(RestFactor + " Rest Factor");
+//        print(RestFactor + " Rest Factor");
     }
     public void RestFactorToScale()
     {
-        print("scaling");
-        float NormalizedRestFactor = (RestFactor + 1) / 2;
-        transform.localScale = new Vector3(OriginalScaleX* NormalizedRestFactor, OriginalScaleX * NormalizedRestFactor, OriginalScaleX * NormalizedRestFactor);
+//        print("scaling");
+        float NormalizedRestFactor = (RestFactor + 1);
+        transform.localScale = new Vector3(OriginalScalex* NormalizedRestFactor, OriginalScalex * NormalizedRestFactor, OriginalScalex * NormalizedRestFactor);
     }
    private void DetectNeighbors()
     {
@@ -250,7 +279,7 @@ public class SingleKey : MonoBehaviour
             NeighboringKeys = new GameObject[neighborColliders.Length-1];
             int i = 0; 
             bool foundItself = false;
-            print(neighborColliders.Length);
+            // print(neighborColliders.Length);
             while (i < neighborColliders.Length-1)
             {
                 if (neighborColliders[i].gameObject == this.gameObject)
@@ -260,17 +289,43 @@ public class SingleKey : MonoBehaviour
                 if (foundItself)
                 {
                     NeighboringKeys[i] = neighborColliders[i+1].gameObject;
-                    print(NeighboringKeys[i].name);
+//                    print(NeighboringKeys[i].name);
                     i++;
                 }
                 else
                 {
                     NeighboringKeys[i] = neighborColliders[i].gameObject;
-                    print(NeighboringKeys[i].name);
+                 //   print(NeighboringKeys[i].name);
                     i++;
                 }
             }
+            print(NeighboringKeys.Length);
         }
     }
+     
+    private void SendKeypressDataToList()
+    {
+        KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed));
+//        print(KeyPressManager.Keypresses[KeyPressManager.Keypresses.Count-1].SingleKey.gameObject + " with excitement:" + KeyPressManager.Keypresses[KeyPressManager.Keypresses.Count - 1].excitement);
+    }
+    private void HeldStatusToFalseInKeypressesList()
+    { 
+        int length = KeyPressManager.Keypresses.Count;
+        KeyPressManager.Keypresses[length - 1].isHeld = false;
+    }
 
+    private void ExciteOrInhibitNeighbors()
+    {
+        if(NeighboringKeys != null)
+        { 
+            foreach (GameObject neighbor in NeighboringKeys)
+            {
+                SingleKey neigborKey = neighbor.GetComponent<SingleKey>();
+                neigborKey.Excitement = Excitement;
+            }
+        }
+        else
+            Debug.Log("no neighbors?");
+    }
 }
+

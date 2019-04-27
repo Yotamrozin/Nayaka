@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Interactive System\Scripts\KeypressData.cs" />
     <Compile Include="Assets\Interactive System\Scripts\KeyPressManager.cs" />
     <Compile Include="Assets\Interactive System\Scripts\SingleKey.cs" />
     <Reference Include="UnityEditor.StandardEvents">
