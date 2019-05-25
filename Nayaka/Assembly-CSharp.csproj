@@ -61,12 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\FireflyRandomFlight.cs" />
-    <Compile Include="Assets\FlyScript.cs" />
+    <Compile Include="Assets\Interactive System\Scripts\FireflyRandomFlight.cs" />
     <Compile Include="Assets\Interactive System\Scripts\KeypressData.cs" />
     <Compile Include="Assets\Interactive System\Scripts\KeyPressManager.cs" />
+    <Compile Include="Assets\Interactive System\Scripts\NayakaRelationship.cs" />
     <Compile Include="Assets\Interactive System\Scripts\SingleKey.cs" />
-    <Compile Include="Assets\NayakaRelationship.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -75,7 +74,6 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
-    <Compile Include="Assets\SingleKeyFirefly.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka/Nayaka/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

@@ -7,54 +7,154 @@ using UnityEngine;
 
 public class SingleKey : MonoBehaviour
 {
-    
+
+    //--------------------
+    //Keyboard
+    /// <summary>
+    /// Enter Keycode this Gameobject is representing
+    /// </summary>
     public KeyCode thisKeyCode;
+
+    /// <summary>
+    /// General  Key Press Manager to handle the single keys
+    /// </summary>
     public KeyPressManager m_KeyPressManager;
 
+
+
+    //--------------------
     //INHERITED FROM BODY
 
-    //excitement (0<x<1) or inhibition (-1<x<0).
-    public float BaseForce;
+    /// <summary>
+    /// excitement (0<x<1) or inhibition (-1<x<0).
+    /// </summary>
     public float Excitement;
+
+    /// <summary>
+    /// Time for the key to reset its excitement or inhibition
+    /// </summary>
     public float DecayTime;
 
-
-    //the desired stimulation
-    //will be converted to duration/number of clicks the key wishes to be pressed 
-    //after which it goes from excitement to inhibition
-    //should i make key holding, number of clicks, and resting time codependent?
+    /// <summary>
+    ///  the desired stimulation
+    /// </summary>
     [Range(0f, 2f)]
- //   public float DesiredStimulation;
     public float DesiredHoldingDuration;
-    public int DesiredClicks;
+
+    /// <summary>
+    /// Number of Clicks this key expects
+    /// </summary>
+    public int DesiredNumberOfClicks;
+
+    /// <summary>
+    /// Time this key desires to rest between clicks
+    /// </summary>
     public float DesiredRest;
+
+    /// <summary>
+    /// How much rest this key received from -1 to 1
+    /// Serves as a factor for excitement or inhibition
+    /// </summary>
     private float RestFromClickFactor;
 
-    //how many keys to each direction does the pressing of the key affect
-    public float areaOfEffect;
+
+
+
+    //---------------------------------
+    //Handling Neighbours
+
+    /// <summary>
+    ///     //how many keys to each direction does the pressing of the key affect
+    /// </summary>
+    public float AreaOfEffect;
+
+    /// <summary>
+    /// How much excitement or inhibition is the key going to transfer to neighbours
+    /// </summary>
     public float NeighborEffectFactor;
 
-    //--------------
-
-    //BACK PROPAGATION
-    public float force = 0;
-    public float ExcitementClickIncrement = 0.1f;
-    public float ExcitementKeyHoldIncrement = 0.1f;
-
-    private float OriginalExcitement;
-    private bool isPressed; //used for duration of press
-    private float duration;
-    private int numberOfClicks;
-    private float LastPress;
-    private Color MaterialColor;
-    private float OriginalScalex;
-    private float OriginalScaley;
+    /// <summary>
+    /// Stores all neighboring key
+    /// </summary>
     private GameObject[] NeighboringKeys;
 
+
+
+    //----------------------------
+
+    //Excitement measurements
+    /// <summary>
+    /// How much does a click effect excitement
+    /// </summary>
+    public float ExcitementClickIncrement = 0.1f;
+
+    /// <summary>
+    /// how much does a frame of holding effect excitement
+    /// </summary>
+    public float ExcitementKeyHoldIncrement = 0.001f;
+
+
+
+    //----------------------
+    //Orignal values saved for resetting and decay
+
+    /// <summary>
+    /// Original Excitement saved for decay and resetting
+    /// </summary>
+    private float OriginalExcitement;
+
+    /// <summary>
+    /// Original Scale x saved for decay and resetting
+    /// </summary>
+    private float OriginalScalex;
+
+    /// <summary>
+    /// Original Scale y saved for decay and resetting
+    /// </summary>
+    private float OriginalScaley;
+
+
+
+    //---------------------------
+    //Local operational private variables
+
+    /// <summary>
+    /// used for duration of key  holding
+    /// </summary>
+    private bool isPressed;
+
+    /// <summary>
+    /// Duration of key holding
+    /// </summary>
+    private float DurationOfHolding;
+
+    /// <summary>
+    /// Counting the number of consecutive clicks 
+    /// </summary>
+    private int numberOfClicks;
+
+    /// <summary>
+    /// Last Time this key was pressed
+    /// </summary>
+    private float LastPress;
+
+    /// <summary>
+    /// used for testing excitement
+    /// converting excitement from black (inhibition) to white (excitement)
+    /// </summary>
+    private Color MaterialColor;
+
+    /// <summary>
+    /// Used for Lerping the decay over time
+    /// </summary>
+    private float TimeLerpStarted;
+
+
+
+//--------------------------------------------------------------------------------------
     // Use this for initialization
     void Start()
     {
-
         isPressed = false;
         LastPress = 0;
         OriginalScalex = transform.localScale.x;
@@ -64,92 +164,109 @@ public class SingleKey : MonoBehaviour
         OriginalExcitement = Excitement;
         MaterialColor = new Color(Excitement, Excitement, Excitement);
         DetectNeighbors();
-        //convert the name of the GameObject to Keycode
-        // thisKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), name);
     }
 
-    //--------------------
-
-    //Lerp Over Time
-    private float TimeLerpStarted;
-   // public float ExcitementDecayTime;
-   // public float ClicksDecayTime;
 
     // Update is called once per frame
     void Update()
     {
-        //Click + Key Hold (calculates excitement) -> Rest
+        //Handles Click
         KeyDownHandling();
+
         if (isPressed)
         {
+            //handle keyholding by checking if holdtime is within keyhold desired duration
             KeyHolding();
-
+            //handles the effect on neighboring keys
             ExciteOrInhibitNeighbors();
-
+            //handles resetting when key is up
             CheckIfKeyUpAndReset();
 
         }
+        //whenever the key is not pressed 
+        //check whether excitement, number of clicks, and scale are all reset
+        //and if not, apply decay
         if (!isPressed)
         {
             DecayExcitementToOriginalValue();
             DecayNumberOfClicksToOriginalValue();
             DecayRestScalingToOriginalValue();
         }
-        
+        //converts excitement to a change of the key color
+        //used for debugging
         ExcitementToColor();
     }
 
 
-    
-    //ON KEY DOWN
+    //---------------------------------------------------------
+    // MAIN KEY PRESS EVENTS
+    // 3 functions handling 3 main events: Key down, Key holding, and Key Up
+
+    /// <summary>
+    /// ON KEY DOWN - calculate rest, add +1 to number of pressed keys
+    /// adds click excitement and sends it to the RawForce of the Key Press manager
+    /// +1 for the number of clicks this key was pressed, sets isPressed to true
+    /// and adds this key press to the list
+    /// </summary>
     private void KeyDownHandling()
     {
         if (Input.GetKeyDown(thisKeyCode))
         {
+            // +1 to number of keys pressed
             m_KeyPressManager.NumberofKeysCurrentlyPressed += 1;
 
             CalculateRestFactor();
 
+            // visualizes the amount
+            // of rest by changing
+            // the scale of the key gameobject
+            RestFactorToScale();
+
             LastPress = Time.time;
 
+            //changes the excitement of the key by the click increment 
+            //and according to the rest factor (if it rested enough from being clicked
             Excitement += ExcitementClickIncrement*RestFromClickFactor;
 
-            m_KeyPressManager.RawForce += ExcitementClickIncrement;
+            //sends excitement as force to the KeyPress Manager 
+            m_KeyPressManager.RawForce += ExcitementClickIncrement * RestFromClickFactor;
 
+            //adds +1 to number of clicks to later check with the desired number of clicks
             numberOfClicks += 1;
 
+            //used to perform operations as long as the key is held
             isPressed = true;
 
             SendKeypressDataToList();
-        
 
-
-            duration = 0;
+            DurationOfHolding = 0;
 
         }
     }
 
 
-    //KEY HOLD
-    //calculate duration and increase or inhibition 
-    //according to desired time
+
+    /// <summary>
+    /// KEY HOLD
+    /// calculate duration and excite or inhibit 
+    /// according to desired time
+    /// Sends force to the body
+    /// </summary>
     private void KeyHolding()
     {
         if (isPressed)
         {
-            duration = Time.time - LastPress;
+            DurationOfHolding = Time.time - LastPress;
             Excitement = 0;
-//            print(thisKeyCode + "is held");
             // holding happens when it is longer than 0.1 sec
             // it is exciting if it is within the desired duration
             // and only if it happens on a well rested key
-            if (0.1f < duration && duration < DesiredHoldingDuration && RestFromClickFactor > 0)
+            if (0.1f < DurationOfHolding && DurationOfHolding < DesiredHoldingDuration && RestFromClickFactor > 0)
             {
                 if (Excitement < 1)
                 {
                     Excitement += (ExcitementKeyHoldIncrement*RestFromClickFactor);
-                    m_KeyPressManager.RawForce = ExcitementKeyHoldIncrement;
-//                  print("excitement up from holding " + Excitement);
+                    m_KeyPressManager.RawForce = Excitement;
                 }
                 else
                 {
@@ -157,20 +274,22 @@ public class SingleKey : MonoBehaviour
                     Excitement = 1;
                 }
             }
+            // handles an inhibiting holding of the key
             // holding is inhibiting if it went on for too long or happens on an unrested key
             // the measure of inhibition of an unrested key is affected by the RestFactor
-            if (duration > DesiredHoldingDuration || RestFromClickFactor < 0)
+            // sends negative force to body.
+            if (DurationOfHolding > DesiredHoldingDuration || RestFromClickFactor < 0)
             {
-
+                // reduce excitement by the keyhold increment (effected by the rest factor)
                 if (Excitement > -1)
                 {
                     if (RestFromClickFactor > 0)
-                        Excitement -= ExcitementKeyHoldIncrement;
+                        Excitement -= ExcitementKeyHoldIncrement * RestFromClickFactor;
                     else
                         Excitement += ExcitementKeyHoldIncrement * RestFromClickFactor;
-             
- //                   print("excitement down from holding " + duration);
+                    m_KeyPressManager.RawForce = Excitement;
                 }
+                // normalize excitement to above -1
                 else
                 {
                     Debug.Log("reached minimum");
@@ -180,20 +299,33 @@ public class SingleKey : MonoBehaviour
         }
     }
 
-    //when Key is Up
+
+
+    /// <summary>
+    /// handles what happens when Key is Up
+    /// </summary>
     private void CheckIfKeyUpAndReset()
     {
         if (Input.GetKeyUp(thisKeyCode))
         {
+            //key is no longer pressed
             isPressed = false;
+            //reduce 1 from the number of pressed keys
             m_KeyPressManager.NumberofKeysCurrentlyPressed -= 1;
-            print(m_KeyPressManager.NumberofKeysCurrentlyPressed);
+            //resets lerp time (is this needed?)
             TimeLerpStarted = Time.time;
+            //changes holding status of key on the list
             HeldStatusToFalseInKeypressesList();
         }
     }
 
-    //DECAY (smoothed)---------
+
+
+    //---------------------------------
+    //DECAY FUNCTIONS
+    /// <summary>
+    /// Decay excitement to original value
+    /// </summary>
     public void DecayExcitementToOriginalValue()
     {
         if (Excitement != OriginalExcitement)
@@ -201,6 +333,9 @@ public class SingleKey : MonoBehaviour
             Excitement = SmoothStep(Excitement, OriginalExcitement, DecayTime);
         }
     }
+    /// <summary>
+    /// Decay Number Of Clicks To Original Value
+    /// </summary>
     public void DecayNumberOfClicksToOriginalValue()
     {
         if (numberOfClicks != 0)
@@ -208,7 +343,9 @@ public class SingleKey : MonoBehaviour
             numberOfClicks = (int)SmoothStep(numberOfClicks, 0, DecayTime);
         }
     }
-
+    /// <summary>
+    /// Decay Rest Scaling To Original Value
+    /// </summary>
     public void DecayRestScalingToOriginalValue()
     {
         if (OriginalScalex != transform.localScale.x)
@@ -225,20 +362,16 @@ public class SingleKey : MonoBehaviour
         }
     }
 
-    //----------------
-
-    public void ExcitementToColor()
-    {
-        Color color = GetComponent<MeshRenderer>().material.color;
-        color.g = (Excitement + 1) / 2;
-        color.r = (Excitement + 1) / 2;
-        color.b = (Excitement + 1) / 2;
-        GetComponent<MeshRenderer>().material.color = color;
-    }
+   
+ 
+    /// <summary>
+    /// calculates how much rest the key got from -1 to 1
+    /// this will be used to affect excitement and inhibition 
+    /// </summary>
     public void CalculateRestFactor()
     {
         float TimePassedSinceLastPress = Time.time - LastPress;
-        if(numberOfClicks < DesiredClicks)
+        if(numberOfClicks < DesiredNumberOfClicks)
         { 
             if (TimePassedSinceLastPress < DesiredRest)
             {
@@ -257,27 +390,76 @@ public class SingleKey : MonoBehaviour
         {
             RestFromClickFactor = 0;
         }
-        RestFactorToScale();
-//        print(RestFactor + " Rest Factor");
+    }   
+    
+    
+    
+    //----------------
+    //DEBUGGING SIMULATIONS
+
+    /// <summary>
+    /// Make the excitement of a key change its color from white to black
+    /// </summary>
+    public void ExcitementToColor()
+    {
+        Color color = GetComponent<MeshRenderer>().material.color;
+        color.g = (Excitement + 1) / 2;
+        color.r = (Excitement + 1) / 2;
+        color.b = (Excitement + 1) / 2;
+        GetComponent<MeshRenderer>().material.color = color;
     }
+
+
+
+
+    /// <summary>
+    /// Visualizes Rest by changing the key gameobject's scale - for debugging
+    /// </summary>
     public void RestFactorToScale()
     {
 //        print("scaling");
         float NormalizedRestFactor = (RestFromClickFactor + 1);
         transform.localScale = new Vector3(OriginalScalex* NormalizedRestFactor, OriginalScalex * NormalizedRestFactor, OriginalScalex * NormalizedRestFactor);
     }
-   private void DetectNeighbors()
+
+
+
+    //-----------------------------
+    //Functions handling the storing of the key press in the Keypress Data List
+    /// <summary>
+    /// Sends position, excitement, and pressed status to the Keypress Data List
+    /// </summary>
+    private void SendKeypressDataToList()
+    {
+        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed));
+    }
+    /// <summary>
+    /// Changes the isHeld status of the key in the Keypress Data List to False when holding is finished
+    /// </summary>
+    private void HeldStatusToFalseInKeypressesList()
+    { 
+        int length = m_KeyPressManager.Keypresses.Count;
+        m_KeyPressManager.Keypresses[length - 1].isHeld = false;
+    }
+
+
+
+    //Functions handling Neighbors
+    /// <summary>
+    /// detects the gameobjects of neighbors using Physics.OverlapSphere
+    /// </summary>
+    private void DetectNeighbors()
     {
         //detects Neigbors, but skips itself
-        
-        if (areaOfEffect > 0)
+
+        if (AreaOfEffect > 0)
         {
-            Collider[] neighborColliders = Physics.OverlapSphere(transform.position, areaOfEffect);
-            NeighboringKeys = new GameObject[neighborColliders.Length-1];
-            int i = 0; 
+            Collider[] neighborColliders = Physics.OverlapSphere(transform.position, AreaOfEffect);
+            NeighboringKeys = new GameObject[neighborColliders.Length - 1];
+            int i = 0;
             bool foundItself = false;
             // print(neighborColliders.Length);
-            while (i < neighborColliders.Length-1)
+            while (i < neighborColliders.Length - 1)
             {
                 if (neighborColliders[i].gameObject == this.gameObject)
                 {
@@ -285,31 +467,22 @@ public class SingleKey : MonoBehaviour
                 }
                 if (foundItself)
                 {
-                    NeighboringKeys[i] = neighborColliders[i+1].gameObject;
-//                    print(NeighboringKeys[i].name);
+                    NeighboringKeys[i] = neighborColliders[i + 1].gameObject;
+                    //                    print(NeighboringKeys[i].name);
                     i++;
                 }
                 else
                 {
                     NeighboringKeys[i] = neighborColliders[i].gameObject;
-                 //   print(NeighboringKeys[i].name);
+                    //   print(NeighboringKeys[i].name);
                     i++;
                 }
             }
-//            print(NeighboringKeys.Length);
+            //            print(NeighboringKeys.Length);
         }
     }
-     
-    private void SendKeypressDataToList()
-    {
-        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed));
-//        print(KeyPressManager.Keypresses[KeyPressManager.Keypresses.Count-1].SingleKey.gameObject + " with excitement:" + KeyPressManager.Keypresses[KeyPressManager.Keypresses.Count - 1].excitement);
-    }
-    private void HeldStatusToFalseInKeypressesList()
-    { 
-        int length = m_KeyPressManager.Keypresses.Count;
-        m_KeyPressManager.Keypresses[length - 1].isHeld = false;
-    }
+
+
 
     private void ExciteOrInhibitNeighbors()
     {
@@ -325,7 +498,7 @@ public class SingleKey : MonoBehaviour
                     neighborKey.Excitement = 1;
                 if (neighborKey.Excitement < -1)
                     neighborKey.Excitement = -1;
-             
+
                 
             }
         }
@@ -334,7 +507,15 @@ public class SingleKey : MonoBehaviour
     }
 
 
-    //Smooth Step in time (for decay)
+    //-------------
+    // smooth lerp for decay
+    /// <summary>
+    /// Smooth Step in time (for decay)
+    /// </summary>
+    /// <param name="LerpStartValue"></param>
+    /// <param name="LerpEndValue"></param>
+    /// <param name="LerpTime"></param>
+    /// <returns></returns>
     public float SmoothStep(float LerpStartValue, float LerpEndValue, float LerpTime)
     {
         float TimeSinceStarted = Time.time - TimeLerpStarted;
