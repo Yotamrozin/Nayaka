@@ -9,7 +9,7 @@ public class SingleKey : MonoBehaviour
 {
     
     public KeyCode thisKeyCode;
-    public KeyPressManager KeyPressManager;
+    public KeyPressManager m_KeyPressManager;
 
     //INHERITED FROM BODY
 
@@ -23,12 +23,12 @@ public class SingleKey : MonoBehaviour
     //will be converted to duration/number of clicks the key wishes to be pressed 
     //after which it goes from excitement to inhibition
     //should i make key holding, number of clicks, and resting time codependent?
-    [Range(0f, 1f)]
-    public float DesiredStimulation;
+    [Range(0f, 2f)]
+ //   public float DesiredStimulation;
     public float DesiredHoldingDuration;
     public int DesiredClicks;
     public float DesiredRest;
-    private float RestFactor;
+    private float RestFromClickFactor;
 
     //how many keys to each direction does the pressing of the key affect
     public float areaOfEffect;
@@ -39,7 +39,7 @@ public class SingleKey : MonoBehaviour
     //BACK PROPAGATION
     public float force = 0;
     public float ExcitementClickIncrement = 0.1f;
-    public float KeyHoldExcitementFactor = 0.1f;
+    public float ExcitementKeyHoldIncrement = 0.1f;
 
     private float OriginalExcitement;
     private bool isPressed; //used for duration of press
@@ -54,6 +54,9 @@ public class SingleKey : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+        isPressed = false;
+        LastPress = 0;
         OriginalScalex = transform.localScale.x;
         OriginalScaley = transform.localScale.y;
         MaterialColor = GetComponent<MeshRenderer>().material.color;
@@ -83,11 +86,8 @@ public class SingleKey : MonoBehaviour
 
             ExciteOrInhibitNeighbors();
 
-            SendForce();
-            
             CheckIfKeyUpAndReset();
 
-            
         }
         if (!isPressed)
         {
@@ -106,11 +106,15 @@ public class SingleKey : MonoBehaviour
     {
         if (Input.GetKeyDown(thisKeyCode))
         {
-            print(thisKeyCode + "clicked");
+            m_KeyPressManager.NumberofKeysCurrentlyPressed += 1;
 
             CalculateRestFactor();
 
-            Excitement += ExcitementClickIncrement*RestFactor;
+            LastPress = Time.time;
+
+            Excitement += ExcitementClickIncrement*RestFromClickFactor;
+
+            m_KeyPressManager.RawForce += ExcitementClickIncrement;
 
             numberOfClicks += 1;
 
@@ -118,7 +122,7 @@ public class SingleKey : MonoBehaviour
 
             SendKeypressDataToList();
         
-            LastPress = Time.time;
+
 
             duration = 0;
 
@@ -134,39 +138,43 @@ public class SingleKey : MonoBehaviour
         if (isPressed)
         {
             duration = Time.time - LastPress;
+            Excitement = 0;
 //            print(thisKeyCode + "is held");
             // holding happens when it is longer than 0.1 sec
             // it is exciting if it is within the desired duration
             // and only if it happens on a well rested key
-            if (0.1f < duration && duration < DesiredHoldingDuration && RestFactor > 0)
+            if (0.1f < duration && duration < DesiredHoldingDuration && RestFromClickFactor > 0)
             {
                 if (Excitement < 1)
                 {
-                      Excitement += (KeyHoldExcitementFactor*RestFactor);
-//                    print("excitement up from holding " + Excitement);
+                    Excitement += (ExcitementKeyHoldIncrement*RestFromClickFactor);
+                    m_KeyPressManager.RawForce = ExcitementKeyHoldIncrement;
+//                  print("excitement up from holding " + Excitement);
                 }
                 else
                 {
                     Debug.Log("reached maximum");
+                    Excitement = 1;
                 }
             }
             // holding is inhibiting if it went on for too long or happens on an unrested key
             // the measure of inhibition of an unrested key is affected by the RestFactor
-            if (duration > DesiredHoldingDuration || RestFactor < 0)
+            if (duration > DesiredHoldingDuration || RestFromClickFactor < 0)
             {
 
                 if (Excitement > -1)
                 {
-                    if (RestFactor > 0)
-                        Excitement -= KeyHoldExcitementFactor;
+                    if (RestFromClickFactor > 0)
+                        Excitement -= ExcitementKeyHoldIncrement;
                     else
-                        Excitement += KeyHoldExcitementFactor * RestFactor;
+                        Excitement += ExcitementKeyHoldIncrement * RestFromClickFactor;
              
  //                   print("excitement down from holding " + duration);
                 }
                 else
                 {
                     Debug.Log("reached minimum");
+                    Excitement = -1;
                 }
             }
         }
@@ -178,11 +186,14 @@ public class SingleKey : MonoBehaviour
         if (Input.GetKeyUp(thisKeyCode))
         {
             isPressed = false;
+            m_KeyPressManager.NumberofKeysCurrentlyPressed -= 1;
+            print(m_KeyPressManager.NumberofKeysCurrentlyPressed);
             TimeLerpStarted = Time.time;
             HeldStatusToFalseInKeypressesList();
         }
     }
-    //DECAY (smoothed)
+
+    //DECAY (smoothed)---------
     public void DecayExcitementToOriginalValue()
     {
         if (Excitement != OriginalExcitement)
@@ -214,28 +225,8 @@ public class SingleKey : MonoBehaviour
         }
     }
 
-    //Smooth Step in time
-    public float SmoothStep(float LerpStartValue, float LerpEndValue, float LerpTime)
-    {
-        float TimeSinceStarted = Time.time - TimeLerpStarted;
-        float PercentageComplete = TimeSinceStarted / LerpTime;
-        var result = Mathf.SmoothStep(LerpStartValue, LerpEndValue, PercentageComplete);
-        return result;
-    }
+    //----------------
 
-    public void Reset()
-    {
-        Excitement = OriginalExcitement;
-        numberOfClicks = 0;
-    }
-
-    public void SendForce()
-    {
-        
-        //print(Excitement + " " + thisKeyCode);
-        //       transform.position += new Vector3(0, Excitement * force, 0);
-        //        print(name + Excitement);
-    }
     public void ExcitementToColor()
     {
         Color color = GetComponent<MeshRenderer>().material.color;
@@ -247,26 +238,32 @@ public class SingleKey : MonoBehaviour
     public void CalculateRestFactor()
     {
         float TimePassedSinceLastPress = Time.time - LastPress;
-        if (TimePassedSinceLastPress < DesiredRest)
-        {
-            //InverseLerp calculates where 
-            //TimePassedSinceLastPress is between 0 rest and Desired Rest
-            //It is multiplied by 2 and subtracted 1 in order to make the range between -1 and 1
-            //this wil be useful to be inhibiting ass well as exciting
-            RestFactor = (Mathf.InverseLerp(0, DesiredRest, TimePassedSinceLastPress)*2)-1;
+        if(numberOfClicks < DesiredClicks)
+        { 
+            if (TimePassedSinceLastPress < DesiredRest)
+            {
+                //InverseLerp calculates where 
+                //TimePassedSinceLastPress is between 0 rest and Desired Rest
+                //It is multiplied by 2 and subtracted 1 in order to make the range between -1 and 1
+                //this wil be useful to be inhibiting as well as exciting
+                RestFromClickFactor = (Mathf.InverseLerp(0, DesiredRest, TimePassedSinceLastPress)*2)-1;
+            }
+            else
+            {
+                RestFromClickFactor = 1;
+            }
         }
         else
         {
-            RestFactor = 1;
+            RestFromClickFactor = 0;
         }
-
         RestFactorToScale();
 //        print(RestFactor + " Rest Factor");
     }
     public void RestFactorToScale()
     {
 //        print("scaling");
-        float NormalizedRestFactor = (RestFactor + 1);
+        float NormalizedRestFactor = (RestFromClickFactor + 1);
         transform.localScale = new Vector3(OriginalScalex* NormalizedRestFactor, OriginalScalex * NormalizedRestFactor, OriginalScalex * NormalizedRestFactor);
     }
    private void DetectNeighbors()
@@ -299,19 +296,19 @@ public class SingleKey : MonoBehaviour
                     i++;
                 }
             }
-            print(NeighboringKeys.Length);
+//            print(NeighboringKeys.Length);
         }
     }
      
     private void SendKeypressDataToList()
     {
-        KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed));
+        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed));
 //        print(KeyPressManager.Keypresses[KeyPressManager.Keypresses.Count-1].SingleKey.gameObject + " with excitement:" + KeyPressManager.Keypresses[KeyPressManager.Keypresses.Count - 1].excitement);
     }
     private void HeldStatusToFalseInKeypressesList()
     { 
-        int length = KeyPressManager.Keypresses.Count;
-        KeyPressManager.Keypresses[length - 1].isHeld = false;
+        int length = m_KeyPressManager.Keypresses.Count;
+        m_KeyPressManager.Keypresses[length - 1].isHeld = false;
     }
 
     private void ExciteOrInhibitNeighbors()
@@ -320,12 +317,30 @@ public class SingleKey : MonoBehaviour
         { 
             foreach (GameObject neighbor in NeighboringKeys)
             {
-                SingleKey neigborKey = neighbor.GetComponent<SingleKey>();
-                neigborKey.Excitement = Excitement;
+                SingleKey neighborKey = neighbor.GetComponent<SingleKey>();
+                neighborKey.Excitement += (Excitement-OriginalExcitement)*NeighborEffectFactor;
+
+                //normalize neighbor excitement between -1 and 1
+                if (neighborKey.Excitement > 1)
+                    neighborKey.Excitement = 1;
+                if (neighborKey.Excitement < -1)
+                    neighborKey.Excitement = -1;
+             
+                
             }
         }
         else
             Debug.Log("no neighbors?");
+    }
+
+
+    //Smooth Step in time (for decay)
+    public float SmoothStep(float LerpStartValue, float LerpEndValue, float LerpTime)
+    {
+        float TimeSinceStarted = Time.time - TimeLerpStarted;
+        float PercentageComplete = TimeSinceStarted / LerpTime;
+        var result = Mathf.SmoothStep(LerpStartValue, LerpEndValue, PercentageComplete);
+        return result;
     }
 }
 
