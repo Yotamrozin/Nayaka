@@ -36,10 +36,9 @@ public class NayakaRelationship : MonoBehaviour {
         if (KeyManager.NumberofKeysCurrentlyPressed > 0)
         {
             //Move the body using physics force
-            Move(KeyManager.direction, KeyManager.NormalizedForce);
+            Move(KeyManager.Direction, KeyManager.NormalizedSinglekeyForce);
             //reset key press manager force and normalized force
-            KeyManager.RawForce = 0;
-            KeyManager.NormalizedForce = 0;
+            KeyManager.NormalizedSinglekeyForce = 0;
         }
     }
 

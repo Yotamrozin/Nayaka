@@ -158,15 +158,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 118
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &3952182
@@ -350,15 +348,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 127
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &32943233
@@ -406,15 +402,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 97
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &32943236
@@ -645,15 +639,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 57
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &85026874
@@ -701,15 +693,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 109
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &85026877
@@ -811,15 +801,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 119
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &96820951
@@ -975,15 +963,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 56
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &186362567
@@ -1031,15 +1017,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 112
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &186362570
@@ -1141,15 +1125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 312
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &204693325
@@ -1251,15 +1233,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 44
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &220577185
@@ -1361,15 +1341,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 99
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &241350329
@@ -1471,15 +1449,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 121
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &256531954
@@ -1635,15 +1611,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 283
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &292579032
@@ -1691,15 +1665,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 39
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &292579035
@@ -1801,15 +1773,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 59
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &334476951
@@ -1965,15 +1935,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 54
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &427808998
@@ -2021,15 +1989,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 92
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &427809001
@@ -2185,15 +2151,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 291
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &519420028
@@ -2318,15 +2282,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 100
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &532613859
@@ -2428,15 +2390,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 98
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &542494445
@@ -2538,15 +2498,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 306
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &586182576
@@ -2648,15 +2606,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 122
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &658666902
@@ -2812,15 +2768,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 49
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &670747487
@@ -2868,15 +2822,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 307
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &670747490
@@ -3032,15 +2984,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 284
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &695049184
@@ -3088,15 +3038,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 107
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &695049187
@@ -3198,15 +3146,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 120
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &703515869
@@ -3362,15 +3308,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 52
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &747184805
@@ -3418,15 +3362,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 46
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &747184808
@@ -3582,15 +3524,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 286
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &764285751
@@ -3638,15 +3578,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 103
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &764285754
@@ -3802,15 +3740,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 292
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &780753530
@@ -3858,15 +3794,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 9
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &780753533
@@ -3940,7 +3874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &818314321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4061,15 +3995,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 106
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &870723441
@@ -4171,15 +4103,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 308
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &883928960
@@ -4281,15 +4211,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 115
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &900509636
@@ -4391,15 +4319,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 101
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &918054846
@@ -4555,15 +4481,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 8
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1043414404
@@ -4593,22 +4517,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760f44fe22f091c49a380e4e03cd7422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Body: {fileID: 1777574526}
+  Target: {fileID: 1632853346}
   DesiredClicks: 0
   DecayTime: 10
   DesiredHoldingDuration: 1
   DesiredRestBetweenClicks: 1
   AreaOfEffect: 2
   NeighborEffectFactor: 0.5
-  ClickForceIncrement: 1
+  ClickForceIncrement: 0.1
   HoldForceIncrement: 0.01
   KeysPressed: []
-  ListMemoryTime: 3
-  RawForce: 0
-  NormalizedForce: 0
-  NormalizingForceFactor: 1
-  SomeKeyisPressed: 0
+  TimeBetweenGestures: 3
+  ForceManualAdjustmentFactor: 11.76
+  AccumulativeForceManualAdjustmentFactor: 1
+  NormalizedSinglekeyForce: 0
   NumberofKeysCurrentlyPressed: 0
-  direction: {x: 0, y: 0}
+  Direction: {x: 0, y: 0}
 --- !u!4 &1043414406
 Transform:
   m_ObjectHideFlags: 0
@@ -4794,15 +4719,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 289
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1119813193
@@ -4904,15 +4827,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 50
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1122225146
@@ -4988,15 +4909,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 102
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1128999764
@@ -5098,15 +5017,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 104
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1132758391
@@ -5208,15 +5125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 116
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1142484506
@@ -5318,15 +5233,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 110
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1160528099
@@ -5428,15 +5341,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 304
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1164835489
@@ -5538,15 +5449,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 311
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1174283441
@@ -5702,15 +5611,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 288
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1335840935
@@ -5758,15 +5665,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 105
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1335840938
@@ -5951,15 +5856,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 27
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!114 &1347179298
@@ -5970,9 +5873,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347179292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb6a56501b2854d4d9c67bb6a8cbfb66, type: 3}
+  m_Script: {fileID: 11500000, guid: 2180df64a6f05314cad3f1d88ddf984f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisKeyCode: 0
+  m_KeyPressManager: {fileID: 0}
 --- !u!1 &1375418616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6018,15 +5923,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 303
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1375418619
@@ -6128,15 +6031,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 13
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1409768848
@@ -6292,15 +6193,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 290
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1498519952
@@ -6348,15 +6247,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 117
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1498519955
@@ -6458,15 +6355,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 301
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1579234182
@@ -6622,15 +6517,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 287
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1619602221
@@ -6732,15 +6625,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 285
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1632853346
@@ -6755,19 +6646,19 @@ GameObject:
   - component: {fileID: 1632853348}
   - component: {fileID: 1632853347}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1632853347
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1632853346}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -6801,7 +6692,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9f3080141f1f64197825663e067f94f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6835,8 +6726,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1632853346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21912163, y: 2.42, z: -0.1465382}
-  m_LocalScale: {x: 12.82, y: 1, z: 1}
+  m_LocalPosition: {x: 6.446, y: 2.095, z: -0.1465382}
+  m_LocalScale: {x: 0.37177998, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -6886,15 +6777,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 47
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1695853888
@@ -7050,15 +6939,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 51
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1704880332
@@ -7106,15 +6993,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 91
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1704880335
@@ -7332,15 +7217,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 45
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1767047202
@@ -7442,15 +7325,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 55
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1777574526
@@ -7466,6 +7347,7 @@ GameObject:
   - component: {fileID: 1777574527}
   - component: {fileID: 1777574531}
   - component: {fileID: 1777574532}
+  - component: {fileID: 1777574533}
   m_Layer: 0
   m_Name: firefly
   m_TagString: Untagged
@@ -7573,12 +7455,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777574526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe5ee075a0aeb3e4697160e6f6204bdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeyManager: {fileID: 1043414405}
+  isPhysicsDriven: 0
+  speed: 1
 --- !u!114 &1777574532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7594,6 +7477,21 @@ MonoBehaviour:
   MinimumFluctuation: 0.0521
   MaximumSpeed: 0.21
   MinimumSpeed: 0
+--- !u!114 &1777574533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777574526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d34ffc427ad7d40a5be6a2f39dd4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0.73, y: -0.51}
+  force: 1.11
+  target: {fileID: 1632853346}
+  speed: 1
 --- !u!1 &1816456106
 GameObject:
   m_ObjectHideFlags: 0
@@ -7639,15 +7537,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 111
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1816456109
@@ -7749,15 +7645,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 114
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1899463774
@@ -7913,15 +7807,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 61
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1957114449
@@ -7969,15 +7861,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 108
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1957114452
@@ -8133,15 +8023,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 48
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1976320821
@@ -8243,15 +8131,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 53
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &2009765451
@@ -8299,15 +8185,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 93
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &2009765454
@@ -8463,15 +8347,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 293
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &2033573716
@@ -8573,15 +8455,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 282
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &2066396190
@@ -8683,15 +8563,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 96
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &2124528432
@@ -8739,15 +8617,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 32
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &2124528435
@@ -8849,15 +8725,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisKeyCode: 113
   m_KeyPressManager: {fileID: 1043414405}
-  BaseForce: 0
   Excitement: 0
   DecayTime: 10
   DesiredHoldingDuration: 0.307
-  DesiredClicks: 0
+  DesiredNumberOfClicks: 0
   DesiredRest: 1
-  areaOfEffect: 2
+  AreaOfEffect: 0
   NeighborEffectFactor: 0.5
-  force: 0
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &2132764120

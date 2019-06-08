@@ -74,7 +74,7 @@ public class SingleKey : MonoBehaviour
     public float NeighborEffectFactor;
 
     /// <summary>
-    /// Stores all neighboring key
+    /// Stores all neighboring keys
     /// </summary>
     private GameObject[] NeighboringKeys;
 
@@ -139,12 +139,6 @@ public class SingleKey : MonoBehaviour
     private float LastPress;
 
     /// <summary>
-    /// used for testing excitement
-    /// converting excitement from black (inhibition) to white (excitement)
-    /// </summary>
-    private Color MaterialColor;
-
-    /// <summary>
     /// Used for Lerping the decay over time
     /// </summary>
     private float TimeLerpStarted;
@@ -159,10 +153,10 @@ public class SingleKey : MonoBehaviour
         LastPress = 0;
         OriginalScalex = transform.localScale.x;
         OriginalScaley = transform.localScale.y;
-        MaterialColor = GetComponent<MeshRenderer>().material.color;
+
         //save the original excitement for resetting and decay
         OriginalExcitement = Excitement;
-        MaterialColor = new Color(Excitement, Excitement, Excitement);
+
         DetectNeighbors();
     }
 
@@ -172,17 +166,20 @@ public class SingleKey : MonoBehaviour
     {
         //Handles Click
         KeyDownHandling();
+        CheckIfKeyUpAndReset();
+        // #TEMP CANCELED KEY HOLDING
+        //if (isPressed)
+        //{
 
-        if (isPressed)
-        {
-            //handle keyholding by checking if holdtime is within keyhold desired duration
-            KeyHolding();
-            //handles the effect on neighboring keys
-            ExciteOrInhibitNeighbors();
-            //handles resetting when key is up
-            CheckIfKeyUpAndReset();
+        //    //handle keyholding by checking if holdtime is within keyhold desired duration
+        //    KeyHolding();
+        //    //handles the effect on neighboring keys
+        //    ExciteOrInhibitNeighbors();
+        //    //handles resetting when key is up
+        //    CheckIfKeyUpAndReset();
 
-        }
+        //}
+
         //whenever the key is not pressed 
         //check whether excitement, number of clicks, and scale are all reset
         //and if not, apply decay
@@ -212,32 +209,37 @@ public class SingleKey : MonoBehaviour
     {
         if (Input.GetKeyDown(thisKeyCode))
         {
+            isPressed = true;
             // +1 to number of keys pressed
             m_KeyPressManager.NumberofKeysCurrentlyPressed += 1;
 
-            CalculateRestFactor();
+            //#TEMP CANCELED REST
+            //CalculateRestFactor();
 
             // visualizes the amount
             // of rest by changing
             // the scale of the key gameobject
-            RestFactorToScale();
+            //RestFactorToScale();
 
             LastPress = Time.time;
 
+            //@TEMP CANCEL REST FACTOR
             //changes the excitement of the key by the click increment 
             //and according to the rest factor (if it rested enough from being clicked
-            Excitement += ExcitementClickIncrement*RestFromClickFactor;
+            //Excitement += ExcitementClickIncrement;
+            //*RestFromClickFactor;
 
-            //sends excitement as force to the KeyPress Manager 
-            m_KeyPressManager.RawForce += ExcitementClickIncrement * RestFromClickFactor;
+            print(RestFromClickFactor);
+            //sends excitement*restfactor as force to the KeyPress Manager's ApplyForce Function 
+            SendKeypressDataToList();
+            m_KeyPressManager.ApplyForce(ExcitementClickIncrement, name);
 
             //adds +1 to number of clicks to later check with the desired number of clicks
             numberOfClicks += 1;
 
+            //@TEMP CANCEL HOLDING
             //used to perform operations as long as the key is held
-            isPressed = true;
-
-            SendKeypressDataToList();
+            //isPressed = true;
 
             DurationOfHolding = 0;
 
@@ -265,8 +267,7 @@ public class SingleKey : MonoBehaviour
             {
                 if (Excitement < 1)
                 {
-                    Excitement += (ExcitementKeyHoldIncrement*RestFromClickFactor);
-                    m_KeyPressManager.RawForce = Excitement;
+                    m_KeyPressManager.ApplyForce(ExcitementKeyHoldIncrement, name);
                 }
                 else
                 {
@@ -283,11 +284,7 @@ public class SingleKey : MonoBehaviour
                 // reduce excitement by the keyhold increment (effected by the rest factor)
                 if (Excitement > -1)
                 {
-                    if (RestFromClickFactor > 0)
-                        Excitement -= ExcitementKeyHoldIncrement * RestFromClickFactor;
-                    else
-                        Excitement += ExcitementKeyHoldIncrement * RestFromClickFactor;
-                    m_KeyPressManager.RawForce = Excitement;
+                        m_KeyPressManager.ApplyForce(ExcitementKeyHoldIncrement, name);
                 }
                 // normalize excitement to above -1
                 else
@@ -309,6 +306,7 @@ public class SingleKey : MonoBehaviour
         if (Input.GetKeyUp(thisKeyCode))
         {
             //key is no longer pressed
+            
             isPressed = false;
             //reduce 1 from the number of pressed keys
             m_KeyPressManager.NumberofKeysCurrentlyPressed -= 1;
@@ -316,6 +314,8 @@ public class SingleKey : MonoBehaviour
             TimeLerpStarted = Time.time;
             //changes holding status of key on the list
             HeldStatusToFalseInKeypressesList();
+            //@DEBUG
+            //print(thisKeyCode + "is up, the number of pressed keys is" + m_KeyPressManager.NumberofKeysCurrentlyPressed);
         }
     }
 
@@ -331,6 +331,12 @@ public class SingleKey : MonoBehaviour
         if (Excitement != OriginalExcitement)
         {
             Excitement = SmoothStep(Excitement, OriginalExcitement, DecayTime);
+        }
+        //Excitement goes crazy when reaching very low values
+        //therefore we let it drop suddenly when it is close to zero
+        if (Mathf.Abs(Excitement - OriginalExcitement)<0.01)
+        {
+            Excitement = OriginalExcitement;
         }
     }
     /// <summary>
@@ -410,8 +416,6 @@ public class SingleKey : MonoBehaviour
     }
 
 
-
-
     /// <summary>
     /// Visualizes Rest by changing the key gameobject's scale - for debugging
     /// </summary>
@@ -431,8 +435,10 @@ public class SingleKey : MonoBehaviour
     /// </summary>
     private void SendKeypressDataToList()
     {
-        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed));
+        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed, name));
     }
+
+
     /// <summary>
     /// Changes the isHeld status of the key in the Keypress Data List to False when holding is finished
     /// </summary>
@@ -483,7 +489,7 @@ public class SingleKey : MonoBehaviour
     }
 
 
-
+    
     private void ExciteOrInhibitNeighbors()
     {
         if(NeighboringKeys != null)

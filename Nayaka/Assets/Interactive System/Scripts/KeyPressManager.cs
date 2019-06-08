@@ -3,8 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyPressManager : MonoBehaviour {
-    
+
     //BODY CHARACTERISTICS
+    
+    /// <summary>
+    /// the gameobject to be moved (eg. Firefly gameobject)
+    /// </summary>
+    [SerializeField]
+    private GameObject Body;
+
+    /// <summary>
+    /// The rigidbody component of Body
+    /// only used for bodies that are moved with physics
+    /// </summary>
+    private Rigidbody2D BodyRB;
+
+    /// <summary>
+    /// Target for following
+    /// </summary>
+    [SerializeField]
+    private GameObject Target;
+    
+        
     /// <summary>
     /// how many times would a key like to be pressed
     /// </summary>
@@ -70,7 +90,7 @@ public class KeyPressManager : MonoBehaviour {
     /// The time afterwhich the list of keys resets
     /// </summary>
     [SerializeField]
-    private float ListMemoryTime = 5;
+    private float TimeBetweenGestures = 5;
 
     /// <summary>
     /// used to make sure we don't reset the force more than one
@@ -93,12 +113,6 @@ public class KeyPressManager : MonoBehaviour {
     private float TimeOfLastKeyPress;
 
     /// <summary>
-    /// the Raw Force accumulated from single keys 
-    /// sending their impact to the keypress manager
-    /// </summary>
-    public float RawForce;
-
-    /// <summary>
     /// gives manual control to amplify or reduce 
     /// the Raw Force by a constant factor
     /// </summary>
@@ -106,9 +120,23 @@ public class KeyPressManager : MonoBehaviour {
     private float ForceManualAdjustmentFactor;
 
     /// <summary>
-    /// the normalized force after multiplying the raw force with the manual adjustment factor
+    /// gives manual control to amplify or reduce 
+    /// the Raw Force by a constant factor
     /// </summary>
-    public float NormalizedForce;
+    [SerializeField]
+    private float AccumulativeForceManualAdjustmentFactor;
+
+    /// <summary>
+    /// the normalized force after multiplying the force from
+    /// a single key with the manual adjustment factor.
+    /// Used for changing target position
+    /// </summary>
+    public float NormalizedSinglekeyForce;
+
+    /// <summary>
+    /// the accumulative force used for speed
+    /// </summary>
+    private float AccumulativeGestureForce;
 
     /// <summary>
     /// a counter of how many keys are currently pressed
@@ -120,70 +148,135 @@ public class KeyPressManager : MonoBehaviour {
     /// <summary>
     /// the direction of force
     /// </summary>
-    public Vector2 direction;
+    public Vector2 Direction;
 
+    /// <summary>
+    /// cue for when the movement is done
+    /// </summary>
+    private bool FinishedMoving;
+    
     // Use this for initialization
     void Start ()
     {
+        BodyRB = Body.GetComponent<Rigidbody2D>();
         // inherit all keys with the characteristics of the current body
         EndowChildren();
+        FinishedMoving = true;
+        if (ForceManualAdjustmentFactor == 0)
+        {
+            Debug.Log("Hey! Force Manual Adjustment Factor is 0");
+        }
 
-        // no need to reset force and list at the beginning of the game
-        DidResetForce = true;
-        DidResetList = true;
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
     {
         // set the time of the last key press
         // so the list can be reset if no key was pressed for the duration of List Memory Time
         if (Input.anyKeyDown)
         {
+            DidResetList = false;
             TimeOfLastKeyPress = Time.time;
         }
-
-        // Sends force as long as some key is pressed
-        if (NumberofKeysCurrentlyPressed > 0)
+        if (FinishedMoving)
         {
-            // calculated force by multiplying Raw Force with a manually adjustable factor for fine tuning
-            NormalizedForce = RawForce * ForceManualAdjustmentFactor;
-            // calculates direction of the last two key presses
-            int KeypressCount = Keypresses.Count;
-            direction = Keypresses[KeypressCount-1].position - Keypresses[KeypressCount-2].position;
-            //as long as keys a pressed, do not reset
-            DidResetForce = false;
-            DidResetList = false;
-            //@DEBUG
-            print("applied force is" + NormalizedForce);
+            //reset accumulative force
+            AccumulativeGestureForce = 0;   
         }
-        // when no key is pressed, reset force
         else
         {
-            //reset force only once, as long as there hasn't been any new presses
-            if (!DidResetForce)
-            {
-                RawForce = 0;
-                NormalizedForce = 0;
-                // to make sure you reset only once
-                DidResetForce = true;
-            }
-
-            //reset key press list, as long as there hasn't been any new presses
-            if (!DidResetList)
-            {
-                float timeSinceLastKeypress = Time.time - TimeOfLastKeyPress;
-                //reset list if there has been more time
-                //since the last key has been pressed than the list memory
-                if (timeSinceLastKeypress > ListMemoryTime)
-                    { 
-                        Keypresses.Clear();
-                        // to make sure you reset only once
-                        DidResetList = true;
-                    }
-            }
+            //continue moving towards target
+            SmoothMoveTowardsTarget();
         }
-	}
+        CheckGestureEndAndResetList();
+    }
+
+    /// <summary>
+    /// Called from single keys and works only after the second key in the gesture is pressed.
+    /// Perform the following functions:
+    /// 1. Normalize Force (recieved from single key) 
+    /// 2. Calculate direction (using normalized force and last two key presses)
+    /// 3. Move target according to direction and force
+    /// </summary>
+    /// <param name="force"></param>
+    public void ApplyForce(float force, string singlekeyname)
+    {
+        
+        if (Keypresses.Count > 1)
+            {
+                CalculateDirectionForceNormalization(force, singlekeyname);
+                print(NormalizedSinglekeyForce + "force to the direction of" + Direction);
+                MoveTarget();
+            }
+    }
+    /// <summary>
+    /// as a key is pressed, check if it was pressed
+    /// after the timespan of a gesture
+    /// if so, reset the list (start a new gesture)
+    /// </summary>
+    void CheckGestureEndAndResetList()
+    {
+            float timeSinceLastKeypress = Time.time - TimeOfLastKeyPress;
+            //reset list if there has been more time
+            //since the last key has been pressed than the list memory
+            //and you haven't yet resetted the list(DidResetList)
+            if (timeSinceLastKeypress > TimeBetweenGestures && !DidResetList)
+            {
+                Keypresses.Clear();
+                // to make sure you reset only once
+                DidResetList = true;
+            }
+    }
+
+
+    /// <summary>
+    /// Calculates Normalized Force and direction (according to previous press)
+    /// </summary>
+    void CalculateDirectionForceNormalization(float force, string nameFromSingleKey)
+    {
+        print(force);   
+        // calculated force by multiplying Raw Force with a manually adjustable factor for fine tuning
+        NormalizedSinglekeyForce = force * ForceManualAdjustmentFactor;
+        AccumulativeGestureForce += force * ForceManualAdjustmentFactor;
+        // calculates direction of the last two key presses
+        int KeypressCount = Keypresses.Count;
+        Direction = Keypresses[KeypressCount - 1].position - Keypresses[KeypressCount - 2].position;
+        Direction  = NormalizeDirection(Direction);
+        print(Direction);
+
+    }
+
+    /// <summary>
+    /// Normailzes direction to represent absolute directions
+    /// i.e (1,0), (-1. 1), (0, -1) etc....
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <returns></returns>
+    Vector2 NormalizeDirection(Vector2 direction)
+    {
+        if (direction.x < 0)
+        {
+            direction.x = -1;
+            print("direction is left");
+        }
+        else if (direction.x > 0)
+        {
+            direction.x = 1;
+            print("direction is right");
+        }
+        if (direction.y < 0)
+        {
+            direction.y = -1;
+            print("direction is down");
+        }
+        else if (direction.y > 0)
+        {
+            direction.y = 1;
+            print("direction is up");
+        }
+        return direction;
+    }
 
     /// <summary>
     /// inherit all the single keys with all the characteristics of the body
@@ -201,5 +294,42 @@ public class KeyPressManager : MonoBehaviour {
             child.GetComponent<SingleKey>().ExcitementClickIncrement = ClickForceIncrement;
             child.GetComponent<SingleKey>().ExcitementKeyHoldIncrement = HoldForceIncrement;
         }
+    }
+
+
+    /// <summary>
+    /// moves target for Body (e.g. Firefly) to move to
+    /// based on the direction of the press and the distance, based on the force
+    /// </summary>
+    /// <param name="body"></param>
+    /// <param name="target"></param>
+    /// <param name="speed"></param>
+    void MoveTarget()
+    {
+        Target.transform.position = Body.transform.position + ((Vector3)Direction * NormalizedSinglekeyForce);
+    }
+
+    /// <summary>
+    /// Smoothly moves the Body of the Devaru towards the Target
+    /// </summary>
+    void SmoothMoveTowardsTarget()
+    {
+        Vector3 desiredposition = Target.transform.position;
+        Vector3 smoothposition = Vector3.Lerp(Body.transform.position, desiredposition,
+        Body.GetComponent<Devaru>().speed * NormalizedSinglekeyForce * Time.deltaTime);
+        Body.transform.position = smoothposition;
+        
+    }
+
+
+    /// <summary>
+    /// Move Body With Physics Force
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="force"></param>
+    void PhysicsMove(Vector2 direction, float force)
+    {
+        BodyRB.AddForce(direction * force, ForceMode2D.Impulse);
+        print("added force in direction " + direction + " " + force);
     }
 }

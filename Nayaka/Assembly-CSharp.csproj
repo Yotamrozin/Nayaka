@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Interactive System\Scripts\Devaru.cs" />
     <Compile Include="Assets\Interactive System\Scripts\FireflyRandomFlight.cs" />
     <Compile Include="Assets\Interactive System\Scripts\KeypressData.cs" />
     <Compile Include="Assets\Interactive System\Scripts\KeyPressManager.cs" />
@@ -74,18 +75,20 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\SingleKeyEngine.cs" />
+    <Compile Include="Assets\TestTargetCreation.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka-Moving-Firefly/Nayaka-Moving-Firefly/Nayaka/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka/Nayaka/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka-Moving-Firefly/Nayaka-Moving-Firefly/Nayaka/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka/Nayaka/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka-Moving-Firefly/Nayaka-Moving-Firefly/Nayaka/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka/Nayaka/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka-Moving-Firefly/Nayaka-Moving-Firefly/Nayaka/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka/Nayaka/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

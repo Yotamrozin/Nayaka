@@ -8,13 +8,15 @@ public class KeyPressData
     public Vector3 position;
     public float excitement;
     public bool isHeld;
+    public string name;
 
-    public KeyPressData(SingleKey newSingleKey, Vector3 newposition, float newexcitement, bool newIsHeld)
+    public KeyPressData(SingleKey newSingleKey, Vector3 newposition, float newexcitement, bool newIsHeld, string newname)
     {
         SingleKey = newSingleKey;
         position = newposition;
         excitement = newexcitement;
-        newIsHeld = isHeld;
+        isHeld = newIsHeld;
+        name = newname;
     }
 
 }
