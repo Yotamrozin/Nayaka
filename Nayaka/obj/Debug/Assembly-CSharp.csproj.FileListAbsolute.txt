@@ -166,3 +166,4 @@ C:\Users\Laptop\Dropbox\Yotam\Projects\Yotam\Nayaka\Nayaka\obj\Debug\Assembly-CS
 C:\Users\Laptop\Dropbox\Yotam\Projects\Yotam\Nayaka\Nayaka\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\Laptop\Dropbox\Yotam\Projects\Yotam\Nayaka\Nayaka\obj\Debug\Assembly-CSharp.dll
 C:\Users\Laptop\Dropbox\Yotam\Projects\Yotam\Nayaka\Nayaka\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Laptop\Dropbox\Yotam\Projects\Yotam\Nayaka\Nayaka\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

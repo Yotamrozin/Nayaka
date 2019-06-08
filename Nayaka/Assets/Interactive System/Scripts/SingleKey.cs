@@ -76,7 +76,7 @@ public class SingleKey : MonoBehaviour
     /// <summary>
     /// Stores all neighboring keys
     /// </summary>
-    private GameObject[] NeighboringKeys;
+    public GameObject[] NeighboringKeys;
 
 
 
@@ -176,7 +176,7 @@ public class SingleKey : MonoBehaviour
         //    //handles the effect on neighboring keys
         //    ExciteOrInhibitNeighbors();
         //    //handles resetting when key is up
-        //    CheckIfKeyUpAndReset();
+            CheckIfKeyUpAndReset();
 
         //}
 
@@ -214,12 +214,12 @@ public class SingleKey : MonoBehaviour
             m_KeyPressManager.NumberofKeysCurrentlyPressed += 1;
 
             //#TEMP CANCELED REST
-            //CalculateRestFactor();
+            CalculateRestFactor();
 
             // visualizes the amount
             // of rest by changing
             // the scale of the key gameobject
-            //RestFactorToScale();
+            RestFactorToScale();
 
             LastPress = Time.time;
 
@@ -229,7 +229,6 @@ public class SingleKey : MonoBehaviour
             //Excitement += ExcitementClickIncrement;
             //*RestFromClickFactor;
 
-            print(RestFromClickFactor);
             //sends excitement*restfactor as force to the KeyPress Manager's ApplyForce Function 
             SendKeypressDataToList();
             m_KeyPressManager.ApplyForce(ExcitementClickIncrement, name);
@@ -435,7 +434,7 @@ public class SingleKey : MonoBehaviour
     /// </summary>
     private void SendKeypressDataToList()
     {
-        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed, name));
+        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed, gameObject));
     }
 
 

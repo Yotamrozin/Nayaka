@@ -67,6 +67,7 @@
     <Compile Include="Assets\Interactive System\Scripts\KeyPressManager.cs" />
     <Compile Include="Assets\Interactive System\Scripts\NayakaRelationship.cs" />
     <Compile Include="Assets\Interactive System\Scripts\SingleKey.cs" />
+    <Compile Include="Assets\RandomFly.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />

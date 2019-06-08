@@ -165,6 +165,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &3952182
@@ -355,6 +356,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &32943233
@@ -409,6 +411,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &32943236
@@ -646,6 +649,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &85026874
@@ -700,6 +704,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &85026877
@@ -808,6 +813,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &96820951
@@ -970,6 +976,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &186362567
@@ -1024,6 +1031,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &186362570
@@ -1132,6 +1140,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &204693325
@@ -1240,6 +1249,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &220577185
@@ -1348,6 +1358,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &241350329
@@ -1456,6 +1467,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &256531954
@@ -1618,6 +1630,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &292579032
@@ -1672,6 +1685,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &292579035
@@ -1780,6 +1794,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &334476951
@@ -1942,6 +1957,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &427808998
@@ -1996,6 +2012,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &427809001
@@ -2158,6 +2175,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &519420028
@@ -2289,6 +2307,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &532613859
@@ -2397,6 +2416,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &542494445
@@ -2505,6 +2525,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &586182576
@@ -2613,6 +2634,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &658666902
@@ -2775,6 +2797,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &670747487
@@ -2829,6 +2852,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &670747490
@@ -2991,6 +3015,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &695049184
@@ -3045,6 +3070,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &695049187
@@ -3153,6 +3179,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &703515869
@@ -3315,6 +3342,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &747184805
@@ -3369,6 +3397,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &747184808
@@ -3531,6 +3560,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &764285751
@@ -3585,6 +3615,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &764285754
@@ -3747,6 +3778,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &780753530
@@ -3801,6 +3833,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &780753533
@@ -3950,6 +3983,104 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &855402685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 855402689}
+  - component: {fileID: 855402688}
+  - component: {fileID: 855402687}
+  - component: {fileID: 855402686}
+  m_Layer: 0
+  m_Name: Randomized Flight Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &855402686
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 855402685}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!23 &855402687
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 855402685}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 9f3080141f1f64197825663e067f94f8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &855402688
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 855402685}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &855402689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 855402685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.38, y: 4.34, z: -0.1465382}
+  m_LocalScale: {x: 0.37177998, y: 0.35, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &870723438
 GameObject:
   m_ObjectHideFlags: 0
@@ -4002,6 +4133,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &870723441
@@ -4110,6 +4242,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &883928960
@@ -4218,6 +4351,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &900509636
@@ -4326,6 +4460,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &918054846
@@ -4488,6 +4623,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1043414404
@@ -4519,7 +4655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 1777574526}
   Target: {fileID: 1632853346}
-  DesiredClicks: 0
+  DesiredClicks: 4
   DecayTime: 10
   DesiredHoldingDuration: 1
   DesiredRestBetweenClicks: 1
@@ -4534,6 +4670,7 @@ MonoBehaviour:
   NormalizedSinglekeyForce: 0
   NumberofKeysCurrentlyPressed: 0
   Direction: {x: 0, y: 0}
+  MaximumDistance: 6
 --- !u!4 &1043414406
 Transform:
   m_ObjectHideFlags: 0
@@ -4726,6 +4863,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1119813193
@@ -4834,6 +4972,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1122225146
@@ -4916,6 +5055,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1128999764
@@ -5024,6 +5164,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1132758391
@@ -5132,6 +5273,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1142484506
@@ -5240,6 +5382,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1160528099
@@ -5348,6 +5491,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1164835489
@@ -5456,6 +5600,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1174283441
@@ -5618,6 +5763,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1335840935
@@ -5672,6 +5818,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1335840938
@@ -5863,6 +6010,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!114 &1347179298
@@ -5930,6 +6078,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1375418619
@@ -6038,6 +6187,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1409768848
@@ -6200,6 +6350,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1498519952
@@ -6254,6 +6405,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1498519955
@@ -6362,6 +6514,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1579234182
@@ -6524,6 +6677,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1619602221
@@ -6632,6 +6786,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1632853346
@@ -6784,6 +6939,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1695853888
@@ -6946,6 +7102,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1704880332
@@ -7000,6 +7157,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1704880335
@@ -7224,6 +7382,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1767047202
@@ -7332,6 +7491,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1777574526
@@ -7348,6 +7508,7 @@ GameObject:
   - component: {fileID: 1777574531}
   - component: {fileID: 1777574532}
   - component: {fileID: 1777574533}
+  - component: {fileID: 1777574534}
   m_Layer: 0
   m_Name: firefly
   m_TagString: Untagged
@@ -7483,7 +7644,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777574526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08d34ffc427ad7d40a5be6a2f39dd4f4, type: 3}
   m_Name: 
@@ -7492,6 +7653,22 @@ MonoBehaviour:
   force: 1.11
   target: {fileID: 1632853346}
   speed: 1
+--- !u!114 &1777574534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777574526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40018de74b6bef044ad0f195de942786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeOfLerpRangeMax: 10000
+  TimeOfLerpRangeMin: 8000
+  rotateSpeed: 5
+  DistanceRange: 1
+  Target: {fileID: 855402685}
 --- !u!1 &1816456106
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,6 +7721,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1816456109
@@ -7652,6 +7830,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1899463774
@@ -7814,6 +7993,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1957114449
@@ -7868,6 +8048,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &1957114452
@@ -8030,6 +8211,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &1976320821
@@ -8138,6 +8320,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &2009765451
@@ -8192,6 +8375,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &2009765454
@@ -8354,6 +8538,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &2033573716
@@ -8462,6 +8647,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &2066396190
@@ -8570,6 +8756,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!1 &2124528432
@@ -8624,6 +8811,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &2124528435
@@ -8732,6 +8920,7 @@ MonoBehaviour:
   DesiredRest: 1
   AreaOfEffect: 0
   NeighborEffectFactor: 0.5
+  NeighboringKeys: []
   ExcitementClickIncrement: 0.4
   ExcitementKeyHoldIncrement: 0.0001
 --- !u!65 &2132764120

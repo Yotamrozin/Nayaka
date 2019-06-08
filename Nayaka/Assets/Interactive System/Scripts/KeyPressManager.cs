@@ -153,24 +153,46 @@ public class KeyPressManager : MonoBehaviour {
     /// <summary>
     /// cue for when the movement is done
     /// </summary>
-    private bool FinishedMoving;
+    private bool isMoving;
     
+    /// <summary>
+    /// multiplies the force to amplify or inhibit the movement
+    /// according to the desired rest
+    /// </summary>
+    private float RestFromClickFactor;
+
+    /// <summary>
+    /// the distance between the last two keys pressed
+    /// </summary>
+    private float KeyDistance;
+
+    /// <summary>
+    /// the distance between the last two keys pressed
+    /// normalized to make the fartherst keys (12.17~) = 0
+    /// and the closest keys (0.7~) = 1
+    /// </summary>
+    private float KeyDistanceFactor;
+
+    [SerializeField]
+    private float MaximumDistance = 6f;
+
     // Use this for initialization
     void Start ()
     {
         BodyRB = Body.GetComponent<Rigidbody2D>();
         // inherit all keys with the characteristics of the current body
         EndowChildren();
-        FinishedMoving = true;
+        isMoving = false;
         if (ForceManualAdjustmentFactor == 0)
         {
             Debug.Log("Hey! Force Manual Adjustment Factor is 0");
         }
+        
 
     }
 	
 	// Update is called once per frame
-	void LateUpdate ()
+	void Update ()
     {
         // set the time of the last key press
         // so the list can be reset if no key was pressed for the duration of List Memory Time
@@ -179,15 +201,24 @@ public class KeyPressManager : MonoBehaviour {
             DidResetList = false;
             TimeOfLastKeyPress = Time.time;
         }
-        if (FinishedMoving)
-        {
-            //reset accumulative force
-            AccumulativeGestureForce = 0;   
-        }
-        else
-        {
-            //continue moving towards target
-            SmoothMoveTowardsTarget();
+
+        //operations that happen as long as there is an active dance (the player is moving the firefly)
+        //Check if reached destination
+        if (isMoving)
+        { 
+            //if reached destination
+            if (Vector2.Distance(Body.transform.position, Target.transform.position) < 0.01f)
+            {
+                isMoving = false;
+                AccumulativeGestureForce = 0;
+                Body.GetComponent<RandomFly>().ShouldRandomlyFly = true;
+            }
+            else
+            {
+                //continue moving towards target
+                Body.GetComponent<RandomFly>().ShouldRandomlyFly = false;
+                SmoothMoveTowardsTarget();
+            }
         }
         CheckGestureEndAndResetList();
     }
@@ -203,12 +234,46 @@ public class KeyPressManager : MonoBehaviour {
     public void ApplyForce(float force, string singlekeyname)
     {
         
-        if (Keypresses.Count > 1)
-            {
-                CalculateDirectionForceNormalization(force, singlekeyname);
-                print(NormalizedSinglekeyForce + "force to the direction of" + Direction);
-                MoveTarget();
+        //repeting the same key twice, doesn't add force
+
+            if (Keypresses.Count > 1)
+                {
+                bool shoudApplyForce = CheckRepetition();
+                if (shoudApplyForce)
+                {
+                    //Body.GetComponent<RandomFly>().enabled = false;
+                    CalculateNomalizedDirectionAndForce(force, singlekeyname);
+                    MoveTarget();
+                }
             }
+    }
+
+    bool CheckRepetition()
+    {
+        bool shouldapplyforce = false;
+        //check that it's not a repetition
+        if (Keypresses[Keypresses.Count-1].Key != Keypresses[Keypresses.Count - 2].Key)
+        {
+            shouldapplyforce = true;
+            //GameObject[] neighbors = Keypresses[Keypresses.Count - 1].Key.GetComponent<SingleKey>().NeighboringKeys;
+            //foreach (GameObject neighbor in neighbors)
+            //{
+            //    if (!shouldapplyforce)
+            //    {
+            //        if (neighbor != Keypresses[Keypresses.Count - 1].Key)
+            //        {
+            //            shouldapplyforce = true;
+            //            print("key pressed is a neighbor");
+            //        }
+            //    }
+            //}
+        }
+        else
+        {
+            print("repeting key");
+        }
+
+        return shouldapplyforce;
     }
     /// <summary>
     /// as a key is pressed, check if it was pressed
@@ -233,16 +298,26 @@ public class KeyPressManager : MonoBehaviour {
     /// <summary>
     /// Calculates Normalized Force and direction (according to previous press)
     /// </summary>
-    void CalculateDirectionForceNormalization(float force, string nameFromSingleKey)
+    void CalculateNomalizedDirectionAndForce(float force, string nameFromSingleKey)
     {
-        print(force);   
+        print(force);
+
+        //calculate rest factor and multiply force
+        CalculateRestFactor();
+        float restedforce = force*RestFromClickFactor;
+        
         // calculated force by multiplying Raw Force with a manually adjustable factor for fine tuning
-        NormalizedSinglekeyForce = force * ForceManualAdjustmentFactor;
-        AccumulativeGestureForce += force * ForceManualAdjustmentFactor;
+        NormalizedSinglekeyForce = restedforce * ForceManualAdjustmentFactor;
+        AccumulativeGestureForce += restedforce * ForceManualAdjustmentFactor;
+        
         // calculates direction of the last two key presses
         int KeypressCount = Keypresses.Count;
         Direction = Keypresses[KeypressCount - 1].position - Keypresses[KeypressCount - 2].position;
-        Direction  = NormalizeDirection(Direction);
+
+        //measuring distance to factor 
+        SetKeyDistanceAndKeyDistanceFactor(Keypresses[KeypressCount - 1].position, Keypresses[KeypressCount - 2].position);
+        
+        //Direction  = NormalizeDirection(Direction);
         print(Direction);
 
     }
@@ -279,6 +354,21 @@ public class KeyPressManager : MonoBehaviour {
     }
 
     /// <summary>
+    /// the distance between the last two keys pressed
+    /// normalized to make the fartherst keys (12.17~) = 0
+    /// and the closest keys (0.7~) = 1
+    /// </summary>
+    /// <param name="Key1"></param>
+    /// <param name="Key2"></param>
+    void SetKeyDistanceAndKeyDistanceFactor(Vector2 Key1, Vector2 Key2)
+    {
+        KeyDistance = Vector2.Distance(Key1, Key2);
+        //very distant keys should no be very effective
+        float ClampedDistnace = Mathf.Clamp(KeyDistance, 0, MaximumDistance);
+        float NormalizedDistance = 1f - Mathf.InverseLerp(0.8f, MaximumDistance, ClampedDistnace);
+        KeyDistanceFactor = Mathf.SmoothStep(0, 1, NormalizedDistance);
+    }
+    /// <summary>
     /// inherit all the single keys with all the characteristics of the body
     /// </summary>
     void EndowChildren()
@@ -306,7 +396,14 @@ public class KeyPressManager : MonoBehaviour {
     /// <param name="speed"></param>
     void MoveTarget()
     {
-        Target.transform.position = Body.transform.position + ((Vector3)Direction * NormalizedSinglekeyForce);
+        print("Key Distance:" + KeyDistance);
+        print("Key Distance Factor: " + KeyDistanceFactor);
+        print("Rest from click factor: " + RestFromClickFactor);
+        print("Normalized Force (with rest): " + NormalizedSinglekeyForce);
+        print("Direction: " + Direction);
+
+        Target.transform.position = Body.transform.position + ((Vector3)Direction * NormalizedSinglekeyForce * KeyDistanceFactor);
+        isMoving = true;
     }
 
     /// <summary>
@@ -331,5 +428,23 @@ public class KeyPressManager : MonoBehaviour {
     {
         BodyRB.AddForce(direction * force, ForceMode2D.Impulse);
         print("added force in direction " + direction + " " + force);
+    }
+    public void CalculateRestFactor()
+    {
+        float TimePassedSinceLastPress = Time.time - TimeOfLastKeyPress;
+            if (TimePassedSinceLastPress < DesiredRestBetweenClicks)
+            {
+                
+                //InverseLerp calculates where 
+                //TimePassedSinceLastPress is between 0 rest and Desired Rest
+                //It is multiplied by 2 and subtracted 1 in order to make the range between -1 and 1
+                //this wil be useful to be inhibiting as well as exciting
+                RestFromClickFactor = (Mathf.InverseLerp(0, DesiredRestBetweenClicks, TimePassedSinceLastPress));
+            }
+            else
+            {
+                RestFromClickFactor = 1;
+                print("time passed is bigger than desired, rest is "+RestFromClickFactor);
+        }
     }
 }
