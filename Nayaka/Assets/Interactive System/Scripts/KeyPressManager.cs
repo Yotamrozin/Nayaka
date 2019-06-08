@@ -176,6 +176,46 @@ public class KeyPressManager : MonoBehaviour {
     [SerializeField]
     private float MaximumDistance = 6f;
 
+    //-----------
+    // Lerp Variables
+    /// <summary>
+    /// Stores the time lerp started for calculating percentage done
+    /// </summary>
+    private float TimeLerpStarted;
+
+    /// <summary>
+    /// Stores the time past since lerp started for calculating percentage done
+    /// </summary>
+    private float timeSinceLerpStarted;
+
+    /// <summary>
+    /// percentage of the lerp already done
+    /// </summary>
+    private float percentageComplete;
+
+    /// <summary>
+    /// Time it takes to Lerp - 
+    /// Practically the speed of the Lerp
+    /// </summary>
+    private float TimeofLerp;
+
+    /// <summary>
+    /// Time of Lerp Changes the speed of the lerp towards the Target
+    /// This is the maximum range for Randomizing it
+    /// </summary>
+    public float MaxTimeOfLerpRange = 36f;
+
+    /// <summary>
+    /// Time of Lerp Changes the speed of the lerp towards the Target
+    /// This is the minimum range for Randomizing it
+    /// </summary>
+    public float MinTimeOfLerpRange = 34f;
+
+    /// <summary>
+    /// flag bool to know when lerping is underway
+    /// </summary>
+    private bool isLerping;
+
     // Use this for initialization
     void Start ()
     {
@@ -211,7 +251,9 @@ public class KeyPressManager : MonoBehaviour {
             {
                 isMoving = false;
                 AccumulativeGestureForce = 0;
+                Body.GetComponent<RandomFly>().ResetRandomFlight();
                 Body.GetComponent<RandomFly>().ShouldRandomlyFly = true;
+                
             }
             else
             {
@@ -233,12 +275,10 @@ public class KeyPressManager : MonoBehaviour {
     /// <param name="force"></param>
     public void ApplyForce(float force, string singlekeyname)
     {
-        
-        //repeting the same key twice, doesn't add force
-
             if (Keypresses.Count > 1)
                 {
-                bool shoudApplyForce = CheckRepetition();
+                 //repeting the same key twice doesn't add force
+                bool shoudApplyForce = CheckRepetition();   
                 if (shoudApplyForce)
                 {
                     //Body.GetComponent<RandomFly>().enabled = false;
@@ -389,7 +429,7 @@ public class KeyPressManager : MonoBehaviour {
 
     /// <summary>
     /// moves target for Body (e.g. Firefly) to move to
-    /// based on the direction of the press and the distance, based on the force
+    /// based on the direction of the key press and the distance, based on the force
     /// </summary>
     /// <param name="body"></param>
     /// <param name="target"></param>
@@ -401,7 +441,7 @@ public class KeyPressManager : MonoBehaviour {
         print("Rest from click factor: " + RestFromClickFactor);
         print("Normalized Force (with rest): " + NormalizedSinglekeyForce);
         print("Direction: " + Direction);
-
+    
         Target.transform.position = Body.transform.position + ((Vector3)Direction * NormalizedSinglekeyForce * KeyDistanceFactor);
         isMoving = true;
     }
@@ -432,6 +472,7 @@ public class KeyPressManager : MonoBehaviour {
     public void CalculateRestFactor()
     {
         float TimePassedSinceLastPress = Time.time - TimeOfLastKeyPress;
+        print(TimePassedSinceLastPress);
             if (TimePassedSinceLastPress < DesiredRestBetweenClicks)
             {
                 

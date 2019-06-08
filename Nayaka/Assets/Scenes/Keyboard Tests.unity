@@ -4658,7 +4658,7 @@ MonoBehaviour:
   DesiredClicks: 4
   DecayTime: 10
   DesiredHoldingDuration: 1
-  DesiredRestBetweenClicks: 1
+  DesiredRestBetweenClicks: 0.6
   AreaOfEffect: 2
   NeighborEffectFactor: 0.5
   ClickForceIncrement: 0.1
@@ -4671,6 +4671,8 @@ MonoBehaviour:
   NumberofKeysCurrentlyPressed: 0
   Direction: {x: 0, y: 0}
   MaximumDistance: 6
+  MaxTimeOfLerpRange: 36
+  MinTimeOfLerpRange: 34
 --- !u!4 &1043414406
 Transform:
   m_ObjectHideFlags: 0
@@ -7616,7 +7618,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777574526}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe5ee075a0aeb3e4697160e6f6204bdc, type: 3}
   m_Name: 
@@ -7664,11 +7666,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40018de74b6bef044ad0f195de942786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeOfLerpRangeMax: 10000
-  TimeOfLerpRangeMin: 8000
   rotateSpeed: 5
   DistanceRange: 1
   Target: {fileID: 855402685}
+  MaxTimeOfLerpRange: 36
+  MinTimeOfLerpRange: 34
+  ShouldRandomlyFly: 1
 --- !u!1 &1816456106
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,7 +90,6 @@ public class RandomFly : MonoBehaviour
     /// </summary>
     void RandomizeTargetPosition()
     {
-
         float distancex = Random.Range(-1.0f, 1.0f);
         float distancey = Random.Range(-1.0f, 1.0f);
         Direction = new Vector2(distancex, distancey);
@@ -149,5 +148,13 @@ public class RandomFly : MonoBehaviour
 
         Quaternion endRotation = Quaternion.AngleAxis(angle, Vector3.back);
         transform.rotation = Quaternion.Slerp(transform.rotation, endRotation, Time.deltaTime * rotateSpeed);
+    }
+    public void ResetRandomFlight()
+    {
+        Distance = 0;
+        TimeLerpStarted = Time.time;
+        TimeofLerp = Random.Range(MaxTimeOfLerpRange, MinTimeOfLerpRange);
+        RandomizeTargetPosition();
+        isLerping = true;
     }
 }
