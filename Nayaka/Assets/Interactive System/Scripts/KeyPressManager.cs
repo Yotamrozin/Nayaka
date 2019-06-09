@@ -242,13 +242,6 @@ public class KeyPressManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        // set the time of the last key press
-        // so the list can be reset if no key was pressed for the duration of List Memory Time
-        if (Input.anyKeyDown)
-        {
-            DidResetList = false;
-        }
-
         //operations that happen as long as there is an active dance (the player is moving the firefly)
         //Check if reached destination
         if (isMoving)
@@ -260,7 +253,8 @@ public class KeyPressManager : MonoBehaviour {
                 AccumulativeGestureForce = 0;
                 Body.GetComponent<RandomFly>().ResetRandomFlight();
                 Body.GetComponent<RandomFly>().ShouldRandomlyFly = true;
-                
+                Body.GetComponent<RandomPhysicsFly>().enabled = false;
+
             }
             else
             {
@@ -282,13 +276,14 @@ public class KeyPressManager : MonoBehaviour {
     /// <param name="force"></param>
     public void ApplyForce(float force, string singlekeyname)
     {
-        DidResetList = false;
+        
         if (Keypresses.Count > 1)
         {
             //repeting the same key twice doesn't add force
         bool shoudApplyForce = CheckRepetition();   
             if (shoudApplyForce)
             {
+                Body.GetComponent<RandomFly>().ShouldRandomlyFly = false;
                 //Body.GetComponent<RandomFly>().enabled = false;
                 CalculateNomalizedDirectionAndForce(force, singlekeyname);
                 MoveTarget();
@@ -330,16 +325,20 @@ public class KeyPressManager : MonoBehaviour {
     /// </summary>
     void CheckGestureEndAndResetList()
     {
+         if(!DidResetList)
+        { 
             float timeSinceLastKeypress = Time.time - TimeOfLastKeyPress;
             //reset list if there has been more time
             //since the last key has been pressed than the list memory
             //and you haven't yet resetted the list(DidResetList)
-            if (timeSinceLastKeypress > TimeBetweenGestures && !DidResetList)
+            if (timeSinceLastKeypress > TimeBetweenGestures)
             {
                 Keypresses.Clear();
                 // to make sure you reset only once
                 DidResetList = true;
+                print("gesture reset");
             }
+        }
     }
 
 
@@ -452,6 +451,8 @@ public class KeyPressManager : MonoBehaviour {
     
         Target.transform.position = Body.transform.position + ((Vector3)Direction * NormalizedSinglekeyForce * KeyDistanceFactor);
         isMoving = true;
+        //turn on random physics flight
+        Body.GetComponent<RandomPhysicsFly>().enabled = true;
     }
 
     /// <summary>
@@ -485,6 +486,7 @@ public class KeyPressManager : MonoBehaviour {
 
         // overriding / becoming the LastKeyPressed
         TimeOfLastKeyPress = Time.time;
+        DidResetList = false;
 
         print("the time past since last press is " + TimePassedSinceLastPress);
 

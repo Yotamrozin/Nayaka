@@ -61,13 +61,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\HumanFollow.cs" />
     <Compile Include="Assets\Interactive System\Scripts\Devaru.cs" />
-    <Compile Include="Assets\Interactive System\Scripts\FireflyRandomFlight.cs" />
     <Compile Include="Assets\Interactive System\Scripts\KeypressData.cs" />
     <Compile Include="Assets\Interactive System\Scripts\KeyPressManager.cs" />
     <Compile Include="Assets\Interactive System\Scripts\NayakaRelationship.cs" />
     <Compile Include="Assets\Interactive System\Scripts\SingleKey.cs" />
     <Compile Include="Assets\RandomFly.cs" />
+    <Compile Include="Assets\RandomPhysicsFly.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
