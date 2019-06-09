@@ -107,10 +107,18 @@ public class KeyPressManager : MonoBehaviour {
 
     /// <summary>
     /// stores the last time a key was pressed
-    /// in order to reset the list of key presses once enough
-    /// time has passed (List Memory)
+    /// in order to calculate rest factor and 
+    /// reset the list of key presses, once enough
+    /// time has passed (List Memory).
     /// </summary>
     private float TimeOfLastKeyPress;
+
+    /// <summary>
+    /// stores the time between current press and previous one
+    /// used to calculate rest and to end gesture
+    /// time has passed (List Memory)
+    /// </summary>
+    private float TimePassedSinceLastPress;
 
     /// <summary>
     /// gives manual control to amplify or reduce 
@@ -239,7 +247,6 @@ public class KeyPressManager : MonoBehaviour {
         if (Input.anyKeyDown)
         {
             DidResetList = false;
-            TimeOfLastKeyPress = Time.time;
         }
 
         //operations that happen as long as there is an active dance (the player is moving the firefly)
@@ -247,7 +254,7 @@ public class KeyPressManager : MonoBehaviour {
         if (isMoving)
         { 
             //if reached destination
-            if (Vector2.Distance(Body.transform.position, Target.transform.position) < 0.01f)
+            if (Vector2.Distance(Body.transform.position, Target.transform.position) < 0.1f)
             {
                 isMoving = false;
                 AccumulativeGestureForce = 0;
@@ -275,17 +282,18 @@ public class KeyPressManager : MonoBehaviour {
     /// <param name="force"></param>
     public void ApplyForce(float force, string singlekeyname)
     {
-            if (Keypresses.Count > 1)
-                {
-                 //repeting the same key twice doesn't add force
-                bool shoudApplyForce = CheckRepetition();   
-                if (shoudApplyForce)
-                {
-                    //Body.GetComponent<RandomFly>().enabled = false;
-                    CalculateNomalizedDirectionAndForce(force, singlekeyname);
-                    MoveTarget();
-                }
+        DidResetList = false;
+        if (Keypresses.Count > 1)
+        {
+            //repeting the same key twice doesn't add force
+        bool shoudApplyForce = CheckRepetition();   
+            if (shoudApplyForce)
+            {
+                //Body.GetComponent<RandomFly>().enabled = false;
+                CalculateNomalizedDirectionAndForce(force, singlekeyname);
+                MoveTarget();
             }
+        }
     }
 
     bool CheckRepetition()
@@ -471,8 +479,15 @@ public class KeyPressManager : MonoBehaviour {
     }
     public void CalculateRestFactor()
     {
-        float TimePassedSinceLastPress = Time.time - TimeOfLastKeyPress;
-        print(TimePassedSinceLastPress);
+        //calculate difference between this press and previous one before
+        // overriding / becoming the LastKeyPressed
+        TimePassedSinceLastPress = Time.time - TimeOfLastKeyPress;
+
+        // overriding / becoming the LastKeyPressed
+        TimeOfLastKeyPress = Time.time;
+
+        print("the time past since last press is " + TimePassedSinceLastPress);
+
             if (TimePassedSinceLastPress < DesiredRestBetweenClicks)
             {
                 
@@ -480,7 +495,8 @@ public class KeyPressManager : MonoBehaviour {
                 //TimePassedSinceLastPress is between 0 rest and Desired Rest
                 //It is multiplied by 2 and subtracted 1 in order to make the range between -1 and 1
                 //this wil be useful to be inhibiting as well as exciting
-                RestFromClickFactor = (Mathf.InverseLerp(0, DesiredRestBetweenClicks, TimePassedSinceLastPress));
+                RestFromClickFactor = Mathf.InverseLerp(0, DesiredRestBetweenClicks, TimePassedSinceLastPress);
+                print("rest factor calculated: " + RestFromClickFactor);
             }
             else
             {

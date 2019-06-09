@@ -105,7 +105,7 @@ public class RandomFly : MonoBehaviour
         if(Target != null)
         {
             //change target when arriving
-            if (Vector2.Distance(transform.position, Target.transform.position) <= 0.03)
+            if (Vector2.Distance(transform.position, Target.transform.position) <= 0.1f)
             {
                 isLerping = false;
                 RandomizeTargetPosition();

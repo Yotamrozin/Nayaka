@@ -4041,7 +4041,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9f3080141f1f64197825663e067f94f8, type: 2}
+  - {fileID: 2100000, guid: 77d08210df254d845885518314593544, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4655,7 +4655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 1777574526}
   Target: {fileID: 1632853346}
-  DesiredClicks: 4
+  DesiredClicks: 12
   DecayTime: 10
   DesiredHoldingDuration: 1
   DesiredRestBetweenClicks: 0.6
@@ -7661,7 +7661,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777574526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40018de74b6bef044ad0f195de942786, type: 3}
   m_Name: 

@@ -443,8 +443,10 @@ public class SingleKey : MonoBehaviour
     /// </summary>
     private void HeldStatusToFalseInKeypressesList()
     { 
+        
         int length = m_KeyPressManager.Keypresses.Count;
-        m_KeyPressManager.Keypresses[length - 1].isHeld = false;
+        if (length > 0)
+            m_KeyPressManager.Keypresses[length - 1].isHeld = false;
     }
 
 
