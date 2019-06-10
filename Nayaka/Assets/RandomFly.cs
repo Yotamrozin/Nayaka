@@ -93,7 +93,8 @@ public class RandomFly : MonoBehaviour
         float distancex = Random.Range(-1.0f, 1.0f);
         float distancey = Random.Range(-1.0f, 1.0f);
         Direction = new Vector2(distancex, distancey);
-        print("direction is: " + Direction);
+        //#DEBUG
+        //print("direction is: " + Direction);
         Distance = Random.Range(0.03f, DistanceRange);
         Target.transform.position = transform.position + ((Vector3)Direction * Distance);
     }

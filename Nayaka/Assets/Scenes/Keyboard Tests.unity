@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 105134393}
   - component: {fileID: 105134392}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: ReachTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,10 +906,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -2.54, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -975,7 +975,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 105134391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.26, y: 4.02, z: -0.123046875}
+  m_LocalPosition: {x: 0.9, y: 4.02, z: 0}
   m_LocalScale: {x: 1.72718, y: 1.72718, z: 1.72718}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4080,7 +4080,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 855402685}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4123,7 +4123,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 855402685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38, y: 4.34, z: -0.1465382}
+  m_LocalPosition: {x: 4.52, y: 4.59, z: -0.1465382}
   m_LocalScale: {x: 0.37177998, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4707,10 +4707,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ff4b66d434ded4b897c362f19e4f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DurationOfAcceleration: 0.1
+  DurationOfAcceleration: 0.5
   DistanceToStartSlowingDown: 2.25
-  FireFly: {fileID: 1777574526}
+  Target: {fileID: 1777574526}
   IdletoWalkAnimation: {fileID: 7400000, guid: 5e0d28a69c7cbeb47a25d0e79f23f260, type: 2}
+  GettingReadyForFireflyAnimationClip: {fileID: 7400000, guid: 4bb3084fc2f7f0e40a1a58453093d29e,
+    type: 2}
+  GettingReadyForFireFly: 0
+  GoToTree: 0
 --- !u!114 &953012240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7019,7 +7023,7 @@ GameObject:
   - component: {fileID: 1632853348}
   - component: {fileID: 1632853347}
   m_Layer: 0
-  m_Name: Target
+  m_Name: FlightTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7687,7 +7691,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.82
+  m_Radius: 0.24
 --- !u!50 &1777574528
 Rigidbody2D:
   serializedVersion: 4
@@ -7761,7 +7765,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777574526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.56, z: 0}
+  m_LocalPosition: {x: 4.54, y: 4.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
