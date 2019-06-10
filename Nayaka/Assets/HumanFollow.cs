@@ -81,6 +81,14 @@ public class HumanFollow : MonoBehaviour
     private float Distance;
 
     /// <summary>
+    /// Animator of the Human.
+    /// Used to get the idle to walk animation flag
+    /// and start a delay before starting to move
+    /// in order to let the animation to finish
+    /// </summary>
+    private Animator HumanAnimator;
+
+    /// <summary>
     /// detects change from horizontalinput of 0.1 to anything above that
     /// meaning a change from idle to walking
     /// we need to wait with moving until Begin Walking Animation is over
@@ -93,6 +101,7 @@ public class HumanFollow : MonoBehaviour
     private void Awake()
     {
         m_Character = GetComponent<PlatformerCharacter2D>();
+        HumanAnimator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -108,22 +117,17 @@ public class HumanFollow : MonoBehaviour
     private void FixedUpdate()
     {
         // Read the inputs.
-        Vector2 FireflyGroundPosition = new Vector2(FireFly.transform.position.x, transform.position.y);
-        Distance = Vector2.Distance(transform.position, FireflyGroundPosition);
 
-        //AnimationDelay is used as a flag to know if delay
-        //is finished. StartCoroutine
-        //if (HorizontalInput < 0.1 && HorizontalInput < LastFrameHorizontalInput)
-        //{
-        //    AnimationDelay = true;
-        //    StartCoroutine("DelayAnimation");
-        //}
-        //if (!AnimationDelay)
-        //{
-        LastFrameHorizontalInput = HorizontalInput;
-        CalculateAcceleration();
-        IsTargetLeftOrRight();
-        m_Character.Move(HorizontalInput * DirectionLeftOrRight, crouch, m_Jump);
+        //If HumanBeginWalk is Playing, the player should not move yet
+        if (!HumanAnimator.GetBool("HumanBeginWalkIsPlaying"))
+        {
+            Vector2 FireflyGroundPosition = new Vector2(FireFly.transform.position.x, transform.position.y);
+            Distance = Vector2.Distance(transform.position, FireflyGroundPosition);
+            LastFrameHorizontalInput = HorizontalInput;
+            CalculateAcceleration();
+            IsTargetLeftOrRight();
+            m_Character.Move(HorizontalInput * DirectionLeftOrRight, crouch, m_Jump);
+        }
         //}
     }
     void CalculateAcceleration()
