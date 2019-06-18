@@ -117,7 +117,32 @@ public class HumanFollow : MonoBehaviour
     /// </summary>
     private bool ReadyForFireFly;
 
+    /// <summary>
+    /// When firefly goes into humanbird, it triggers the humanbird animation (Firefly In)
+    /// But only after waiting for the firefly  animation to finish. This is this animation clip.
+    /// FireflyComing bool is changed by FireflyIntoHumanbird.cs on FireflyIntoHumanTrigger
+    /// </summary>
+    public AnimationClip FireflyComingInAnimationClip;
 
+    /// <summary>
+    /// When firefly goes into humanbird, it triggers the humanbird animation (Firefly In)
+    /// But only after waiting for the firefly  animation to finish. This is this animation clip.
+    /// FireflyComing bool is changed by FireflyIntoHumanbird.cs on FireflyIntoHumanTrigger
+    /// </summary>
+    public AnimationClip ReactionToFireflyAnimationClip;
+
+    /// <summary>
+    /// when the transformation into bird is complete,
+    /// it is ready to recieve the firefly and the trigger is activated.
+    /// </summary>
+    [SerializeField]
+    private GameObject FireflyIntoHumanTrigger;
+
+    /// <summary>
+    /// starts the delay, waiting for the firefly to dive into the bird.
+    /// After the animation is over, we can play the reaction animation.
+    /// </summary>
+    public bool reactToFirefly;
 
 
     private void Awake()
@@ -151,14 +176,38 @@ public class HumanFollow : MonoBehaviour
             IsTargetLeftOrRight();
             m_Character.Move(HorizontalInput * DirectionLeftOrRight, crouch, m_Jump);
         }
+
+        // When human reaches its position next to tree
+        // it starts transforming into the bird, waiting for the animation to be over
+        // and sets ReadyForFireFly to true
         if (GoToTree && Distance < DistanceToStartSlowingDown && !GettingReadyForFireFly)
         {
             GettingReadyForFireFly = true;
             print("distance is:" + Distance);
             HumanAnimator.SetTrigger("GetReadyForFirefly");
-            StartCoroutine(DelayForAnimation(GettingReadyForFireflyAnimationClip, ReadyForFireFly));
+            StartCoroutine(DelayForGettingReadyAnimation(GettingReadyForFireflyAnimationClip));
         }
-        //}
+        
+        // when the humanbird is ready for the firefly, the FireflyIntoHumanTrigger is activated through
+        // the Cocked bool.
+        if (ReadyForFireFly)
+        {
+            FireflyIntoHumanTrigger.GetComponent<FireflyIntoHumanbird>().Cocked = true;
+            ReadyForFireFly = false;
+        }
+
+        // When the FireflyIntoHumanTrigger is triggered by the firefly,
+        // we wait for the firefly animation to end
+        // and play the reaction animation.
+        // When reaction animation is over, 
+        // Reconfigure Key Press Manager().
+        if (reactToFirefly)
+        {
+            StartCoroutine(WaitForFireflyAnimation_PlayReaction_ChangeKeyPressManager(FireflyComingInAnimationClip, ReactionToFireflyAnimationClip));
+            reactToFirefly = false;
+        }
+        
+        
     }
     void CalculateAcceleration()
     {
@@ -185,6 +234,11 @@ public class HumanFollow : MonoBehaviour
             movementStartTime = Time.time;
         }
     }
+
+    /// <summary>
+    /// Used to determine if target (firefly) is on 
+    /// the right or left of the human
+    /// </summary>
     void IsTargetLeftOrRight()
     {
         if (Target.transform.position.x > transform.position.x)
@@ -194,12 +248,42 @@ public class HumanFollow : MonoBehaviour
         else
             DirectionLeftOrRight = -1;
     }
-    IEnumerator DelayForAnimation(AnimationClip AnimClip, bool FlagToChange)
+
+    /// <summary>
+    /// changes ReadyForFirefly when the transformation from human to bird
+    /// has finished and it is ready for the firefly.
+    /// </summary>
+    /// <param name="AnimClip"></param>
+    /// <returns></returns>
+    public IEnumerator DelayForGettingReadyAnimation(AnimationClip AnimClip)
     {
         yield return new WaitForSeconds(AnimClip.length);
         //@DEBUG
-        FlagToChange = !FlagToChange;
-        print("it's " + FlagToChange + "! we're ready for firefly!");
+        print("it's we're ready for firefly!");
+        ReadyForFireFly = true;
+    }
+
+    /// <summary>
+    /// changes FireflyIsIn when the firefly finishes its plunge into the bird
+    /// and then changes FireflyIsIn to True.
+    /// </summary>
+    /// <param name="AnimClip"></param>
+    /// <returns></returns>
+    IEnumerator WaitForFireflyAnimation_PlayReaction_ChangeKeyPressManager(AnimationClip AnimClip01, AnimationClip AnimClip02)
+    {
+        print("wainting for a third of " + AnimClip01.length);
+        yield return new WaitForSeconds(AnimClip01.length/10);
+        //@DEBUG
+        HumanAnimator.SetTrigger("FireflyIn");
+        yield return new WaitForSeconds(AnimClip02.length);
+        ReconfigureKeyPressManager();
+    }
+
+    /// <summary>
+    /// loads the Humanbird as the new Body and reconfigures how it operates.
+    /// </summary>
+    public void ReconfigureKeyPressManager()
+    {
 
     }
 }

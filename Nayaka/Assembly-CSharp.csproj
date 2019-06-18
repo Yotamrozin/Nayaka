@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FireflyIntoHumanbird.cs" />
     <Compile Include="Assets\HumanFollow.cs" />
     <Compile Include="Assets\HumanReachedTheTree.cs" />
     <Compile Include="Assets\IdleToWalkFlag.cs" />

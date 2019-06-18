@@ -15,6 +15,9 @@ public class SingleKey : MonoBehaviour
     /// </summary>
     public KeyCode thisKeyCode;
 
+    [Range (1, 6)]
+    public int RowNumberBottomToTop;
+
     /// <summary>
     /// General  Key Press Manager to handle the single keys
     /// </summary>
@@ -144,6 +147,10 @@ public class SingleKey : MonoBehaviour
     private float TimeLerpStarted;
 
 
+    /// <summary>
+    /// use for debugging
+    /// </summary>
+    public bool VisualizeKeyboard;
 
 //--------------------------------------------------------------------------------------
     // Use this for initialization
@@ -158,6 +165,8 @@ public class SingleKey : MonoBehaviour
         OriginalExcitement = Excitement;
 
         DetectNeighbors();
+
+
     }
 
 
@@ -191,7 +200,11 @@ public class SingleKey : MonoBehaviour
         }
         //converts excitement to a change of the key color
         //used for debugging
-        ExcitementToColor();
+        if (VisualizeKeyboard)
+        { 
+            ExcitementToColor();
+        }
+
     }
 
 
@@ -434,7 +447,7 @@ public class SingleKey : MonoBehaviour
     /// </summary>
     private void SendKeypressDataToList()
     {
-        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed, gameObject));
+        m_KeyPressManager.Keypresses.Add( new KeyPressData(this, transform.position, Excitement, isPressed, gameObject, RowNumberBottomToTop));
     }
 
 

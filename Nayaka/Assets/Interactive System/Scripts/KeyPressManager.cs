@@ -9,8 +9,7 @@ public class KeyPressManager : MonoBehaviour {
     /// <summary>
     /// the gameobject to be moved (eg. Firefly gameobject)
     /// </summary>
-    [SerializeField]
-    private GameObject Body;
+    public GameObject Body;
 
     /// <summary>
     /// The rigidbody component of Body
@@ -74,6 +73,10 @@ public class KeyPressManager : MonoBehaviour {
     [SerializeField]
     private float HoldForceIncrement = 0.0001f;
 
+    [SerializeField]
+    private bool VisualizeKeyboard;
+
+    ///-------------------
 
     /// <summary>
     /// An array of all the keys currently pressed
@@ -430,6 +433,11 @@ public class KeyPressManager : MonoBehaviour {
             child.GetComponent<SingleKey>().NeighborEffectFactor = NeighborEffectFactor;
             child.GetComponent<SingleKey>().ExcitementClickIncrement = ClickForceIncrement;
             child.GetComponent<SingleKey>().ExcitementKeyHoldIncrement = HoldForceIncrement;
+            child.GetComponent<SingleKey>().VisualizeKeyboard = VisualizeKeyboard;
+            if (!VisualizeKeyboard)
+            {
+                child.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
     }
 
