@@ -271,7 +271,7 @@ public class HumanFollow : MonoBehaviour
     /// <returns></returns>
     IEnumerator WaitForFireflyAnimation_PlayReaction_ChangeKeyPressManager(AnimationClip AnimClip01, AnimationClip AnimClip02)
     {
-        print("wainting for a third of " + AnimClip01.length);
+        print("wainting for a tenth of " + AnimClip01.length);
         yield return new WaitForSeconds(AnimClip01.length/10);
         //@DEBUG
         HumanAnimator.SetTrigger("FireflyIn");

@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\FireflyIntoHumanbird.cs" />
     <Compile Include="Assets\HumanFollow.cs" />
+    <Compile Include="Assets\HumanFollowTrigger.cs" />
     <Compile Include="Assets\HumanReachedTheTree.cs" />
     <Compile Include="Assets\IdleToWalkFlag.cs" />
     <Compile Include="Assets\Interactive System\Scripts\Devaru.cs" />
@@ -82,6 +83,29 @@
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\SingleKeyEngine.cs" />
     <Compile Include="Assets\TestTargetCreation.cs" />
+    <None Include="Assets\Shaders\SpriteShaders\CameraDepthTexture.shader" />
+    <None Include="Assets\Shaders\SpriteShaders\SpritesPixelLit.shader" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\Noise\SimplexNoise2D.hlsl" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\SpriteUnlit.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\Noise\ClassicNoise3D.hlsl" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\Noise\Noise3d.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CameraDepthNormalsTexture.shader" />
+    <None Include="Assets\Shaders\SpriteShaders\SpritesPixelLitDissolve.shader" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\SimplexNoise3D.hlsl" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\ShaderShared.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\SpriteShadows.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\SpritesUnlit.shader" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\SpritePixelLighting.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\SpriteDissolve.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\ShaderMaths.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\SpriteLighting.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\Noise\Noise2d.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\Noise\SimplexNoise3D.hlsl" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\Noise\ClassicNoise2D.hlsl" />
+    <None Include="Assets\Shaders\SpriteShaders\CameraNormalsTexture.shader" />
+    <None Include="Assets\Shaders\SpriteShaders\SpritesVertexLit.shader" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\SpriteSpecular.cginc" />
+    <None Include="Assets\Shaders\SpriteShaders\CGIncludes\SpriteVertexLighting.cginc" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Laptop/Dropbox/Yotam/Projects/Yotam/Nayaka/Nayaka/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
