@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: TreeMaterial
   m_Shader: {fileID: 4800000, guid: f1c332c0884ef2b4bb26584f688eac3a, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ALPHABLEND_ON _NORMALMAP _SPECULAR
@@ -73,7 +74,7 @@ Material:
     - PixelSnap: 0
     - _BlendAmount: 0
     - _Brightness: 1
-    - _BumpScale: -0.29
+    - _BumpScale: -0.14
     - _Cull: 0
     - _CustomRenderQueue: 0
     - _Cutoff: 0.5
